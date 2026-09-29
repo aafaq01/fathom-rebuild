@@ -43,9 +43,11 @@ try {
   const existing = fs.readdirSync(dir).find(f => f.endsWith(`_${sid}.md`));
   const file = path.join(dir, existing || `${turns[0].promptTs.slice(0, 19).replace('T', '_').replaceAll(':', '-')}_${sid}.md`);
   const old = existing ? fs.readFileSync(file, 'utf8') : '';
-  const logged = new Set([...old.matchAll(/\[LOG_ENTRY type=(PROMPT|RESPONSE) num=(\d+) /g)].map(m => m[1] + m[2]));
-
   const short = sid.slice(0, 8);
+  // Only real headers count: start of line + this session's id. Pasted examples inside a prompt
+  // (e.g. the setup doc's indented `[LOG_ENTRY ... session=3f9c1a20]`) must not.
+  // ponytail: a prompt pasting this session's own header line verbatim, unindented, would still match
+  const logged = new Set([...old.matchAll(new RegExp(`^\\[LOG_ENTRY type=(PROMPT|RESPONSE) num=(\\d+) session=${short}\\]$`, 'gm'))].map(m => m[1] + m[2]));
   const entry = (type, n, ts, model, text) =>
     `[LOG_ENTRY type=${type} num=${n} session=${short}]\ntimestamp: ${ts}\nmodel: ${model}\n\n${text.trim()}\n\n\n`;
 
