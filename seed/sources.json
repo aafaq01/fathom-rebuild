@@ -1,0 +1,44 @@
+[
+  {
+    "id": "burlington-telecom-2017-10-11",
+    "title": "Burlington Telecom Advisory Board — October 2017",
+    "recorded_at": "2017-10-11",
+    "media_kind": "video",
+    "media_url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Burlington_Telecom_Advisory_Board_%282017-10-11%29.webm",
+    "audio_url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Burlington_Telecom_Advisory_Board_%282017-10-11%29.webm",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Burlington_Telecom_Advisory_Board_(2017-10-11).webm",
+    "license": "CC BY 3.0",
+    "attribution": "Town Meeting TV, via Wikimedia Commons, CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)"
+  },
+  {
+    "id": "williston-drb-2017-08-08",
+    "title": "Williston Development Review Board — August 2017",
+    "recorded_at": "2017-08-08",
+    "media_kind": "video",
+    "media_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Williston_Development_Review_Board_%282017-08-08%29.webm",
+    "audio_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Williston_Development_Review_Board_%282017-08-08%29.webm",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Williston_Development_Review_Board_(2017-08-08).webm",
+    "license": "CC BY 3.0",
+    "attribution": "Town Meeting TV, via Wikimedia Commons, CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)"
+  },
+  {
+    "id": "ami-is1009c",
+    "title": "AMI IS1009c — remote control design: conceptual design",
+    "media_kind": "video",
+    "audio_url": "https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/IS1009c/audio/IS1009c.Mix-Headset.wav",
+    "video_source_url": "https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/IS1009c/video/IS1009c.C.avi",
+    "source_url": "https://groups.inf.ed.ac.uk/ami/corpus/",
+    "license": "CC BY 4.0",
+    "attribution": "AMI Meeting Corpus, AMI Consortium, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
+  },
+  {
+    "id": "ami-es2004a",
+    "title": "AMI ES2004a — remote control design: kick-off",
+    "media_kind": "video",
+    "audio_url": "https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/ES2004a/audio/ES2004a.Mix-Headset.wav",
+    "video_source_url": "https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/ES2004a/video/ES2004a.C.avi",
+    "source_url": "https://groups.inf.ed.ac.uk/ami/corpus/",
+    "license": "CC BY 4.0",
+    "attribution": "AMI Meeting Corpus, AMI Consortium, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)"
+  }
+]
