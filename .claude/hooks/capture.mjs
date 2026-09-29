@@ -14,26 +14,32 @@ try {
   const root = process.env.CLAUDE_PROJECT_DIR || input.cwd;
   const dir = path.join(root, '.agent-logs');
 
-  // Transcript -> turns: { prompt, promptTs, texts (after last tool_use), respTs, model }
+  // Transcript -> turns: { prompt, promptTs, model, segs: [{ texts (after last tool_use), ts }] }
+  // A turn can stop more than once: a harness message (task notification, subagent hand-back) wakes
+  // the model again without a human prompt. Each Stop (stop_hook_summary) closes one response segment.
   const turns = [];
-  let cur = null;
+  let cur = null, seg = null;
+  const newSeg = () => cur.segs.push(seg = { texts: [], ts: null });
   for (const line of fs.readFileSync(input.transcript_path, 'utf8').split('\n')) {
     let e;
     try { e = JSON.parse(line); } catch { continue; }
     if (e.isSidechain) continue;
     const c = e.message?.content;
-    if (e.type === 'user' && !e.isMeta && !e.isCompactSummary) {
+    if (e.type === 'system' && e.subtype === 'stop_hook_summary' && cur) newSeg();
+    else if (e.type === 'user' && !e.isMeta && !e.isCompactSummary) {
+      if (e.origin && e.origin.kind !== 'human') continue; // harness-injected (<task-notification> etc.), not a prompt
       const blocks = typeof c === 'string' ? [{ type: 'text', text: c }] : c || [];
       if (blocks.some(b => b.type === 'tool_result')) continue;
       const text = blocks.map(b => b.type === 'text' ? b.text : b.type === 'image' ? '[image]' : '').join('\n');
       // ponytail: skip harness echoes that aren't typed prompts; extend this list if others show up
       if (!text.trim() || /^(\[Request interrupted by user|<local-command-stdout>|<bash-stdout>)/.test(text)) continue;
-      turns.push(cur = { prompt: text, promptTs: e.timestamp, texts: [], respTs: null, model: null });
+      turns.push(cur = { prompt: text, promptTs: e.timestamp, model: null, segs: [] });
+      newSeg();
     } else if (e.type === 'assistant' && cur) {
       cur.model = e.message.model;
       for (const b of c || []) {
-        if (b.type === 'tool_use') cur.texts = [];
-        else if (b.type === 'text') { cur.texts.push(b.text); cur.respTs = e.timestamp; }
+        if (b.type === 'tool_use') seg.texts = [];
+        else if (b.type === 'text') { seg.texts.push(b.text); seg.ts = e.timestamp; }
       }
     }
   }
@@ -44,36 +50,43 @@ try {
   const file = path.join(dir, existing || `${turns[0].promptTs.slice(0, 19).replace('T', '_').replaceAll(':', '-')}_${sid}.md`);
   const old = existing ? fs.readFileSync(file, 'utf8') : '';
   const short = sid.slice(0, 8);
+  // Dedupe on timestamp, not num: nums in the log are history, the parse of turns may change.
   // Only real headers count: start of line + this session's id. Pasted examples inside a prompt
   // (e.g. the setup doc's indented `[LOG_ENTRY ... session=3f9c1a20]`) must not.
   // ponytail: a prompt pasting this session's own header line verbatim, unindented, would still match
-  const logged = new Set([...old.matchAll(new RegExp(`^\\[LOG_ENTRY type=(PROMPT|RESPONSE) num=(\\d+) session=${short}\\]$`, 'gm'))].map(m => m[1] + m[2]));
+  const logged = new Map([...old.matchAll(new RegExp(`^\\[LOG_ENTRY type=(PROMPT|RESPONSE) num=(\\d+) session=${short}\\]\\ntimestamp: (\\S+)$`, 'gm'))]
+    .map(m => [`${m[1]}@${m[3]}`, +m[2]]));
+  let maxNum = Math.max(0, ...[...logged].filter(([k]) => k.startsWith('PROMPT@')).map(([, n]) => n));
+
   const entry = (type, n, ts, model, text) =>
     `[LOG_ENTRY type=${type} num=${n} session=${short}]\ntimestamp: ${ts}\nmodel: ${model}\n\n${text.trim()}\n\n\n`;
 
   let add = '';
   let lastModel = input.model || null;
   turns.forEach((t, i) => {
-    const n = i + 1;
     const model = t.model || lastModel;
     lastModel = model;
-    if (!logged.has('PROMPT' + n)) {
+    let num = logged.get('PROMPT@' + t.promptTs);
+    if (!num) {
       if (!model) return; // first prompt, no reply yet: Stop will log it with the answering model
-      add += entry('PROMPT', n, t.promptTs, model, t.prompt);
-      logged.add('PROMPT' + n);
+      num = ++maxNum;
+      add += entry('PROMPT', num, t.promptTs, model, t.prompt);
+      logged.set('PROMPT@' + t.promptTs, num);
     }
-    // Final response: only once the turn is over, and never after a later prompt is already in the log.
-    const over = isStop || n < turns.length;
-    let text = t.texts.join('\n\n');
-    if (isStop && n === turns.length && !text.trim()) text = input.last_assistant_message || ''; // transcript not flushed yet
-    if (over && text.trim() && !logged.has('RESPONSE' + n) && !logged.has('PROMPT' + (n + 1))) {
-      add += entry('RESPONSE', n, t.respTs || new Date().toISOString(), t.model || model, text);
-      logged.add('RESPONSE' + n);
-    }
+    // A segment is final once a later Stop/turn closed it, or this is the Stop that ends it.
+    // A segment missed earlier is appended late (out of order) rather than dropped.
+    t.segs.forEach((s, j) => {
+      const text = s.texts.join('\n\n');
+      const closed = isStop || j < t.segs.length - 1 || i < turns.length - 1;
+      if (closed && text.trim() && !logged.has('RESPONSE@' + s.ts)) {
+        add += entry('RESPONSE', num, s.ts, model, text);
+        logged.set('RESPONSE@' + s.ts, num);
+      }
+    });
   });
   if (!add && existing) process.exit(0);
 
-  const prompts = turns.filter((_, i) => logged.has('PROMPT' + (i + 1)));
+  const prompts = [...logged.keys()].filter(k => k.startsWith('PROMPT@')).map(k => k.slice(7)).sort();
   const body = existing
     ? old.slice(old.indexOf('\n---\n', 4) + 5)
     : `\n# Session Log - ${turns[0].promptTs.slice(0, 10)}\n\nSession: \`${short}\` | Project: \`${path.basename(root)}\` | Author: \`${AUTHOR}\`\n\n---\n\n`;
@@ -85,8 +98,8 @@ model: ${lastModel}
 tool: claude-code
 project: ${path.basename(root)}
 total_exchanges: ${prompts.length}
-first_prompt_time: ${prompts[0]?.promptTs ?? ''}
-last_prompt_time: ${prompts.at(-1)?.promptTs ?? ''}
+first_prompt_time: ${prompts[0] ?? ''}
+last_prompt_time: ${prompts.at(-1) ?? ''}
 ---
 `;
   fs.writeFileSync(file, front + body + add);

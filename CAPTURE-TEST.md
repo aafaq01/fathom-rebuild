@@ -147,6 +147,30 @@ against the harness's own `last_assistant_message` from the Stop hook stdin: exa
   - Not affected: `a1094641` and `a27492c2` have no example lines. `f2ad8478` does, but it was
     written fresh in a single run, so the bad dedupe set never came into play.
 
+- **Harness messages logged as prompts, and a lost response** (found 2026-09-29, session `d9ea18f8`).
+  - **Symptom 1 (reported by the user).** A background-task `<task-notification>` that Claude Code
+    injects into the conversation was logged as `PROMPT num=5`. It isn't something the user typed.
+  - **Symptom 2 (found while fixing 1).** A subagent's hand-back (`<agent-message …>`) arrives as a
+    queued attachment, not a user entry. It woke the model a second time inside turn 4, so `Stop`
+    fired twice for one turn. The dedupe was keyed on `num`, so it treated `RESPONSE 4` as already
+    logged, and the second reply (the seed-sources answer at 17:58:58) was never captured.
+  - **Fix.**
+    - User entries whose `origin.kind` is present and isn't `human` are skipped as prompts;
+      headless prompts have no `origin` and are kept. What the model says after such a message
+      counts as a continuation of the current turn.
+    - Each `Stop` (recorded in the transcript as `system/stop_hook_summary`) closes one response
+      segment, and each segment becomes one RESPONSE entry.
+    - Dedupe is now by entry timestamp instead of `num`. New prompts take the next free number,
+      so numbering stays consistent with entries already in the log.
+    - Dropped the `last_assistant_message` fallback. The transcript was always flushed at `Stop`
+      in practice, and a missed segment is now picked up by the next hook firing anyway.
+  - **Repair, append-only.**
+    - The existing `PROMPT num=5` (the task notification) and its response are left as they are.
+    - Re-running the fixed script appended the lost reply as a second `RESPONSE num=4` (timestamp
+      17:58:58.183Z), out of order after PROMPT/RESPONSE 5.
+    - The next real prompt was then logged as `PROMPT num=6`.
+    - A dry run on copies of all four logs first showed the other three unchanged and the existing
+      body of `d9ea18f8` byte-identical.
 - **Earlier attempt, session `f2ad8478` (08:45 UTC).** The first run of this setup found `.git`
   in the parent folder (`8x assignment/`) rather than in `fathom-rebuild/`. Moving it was blocked
   as a risky action, so that session committed nothing, and its files were later discarded. The
