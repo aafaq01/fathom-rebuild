@@ -2,6 +2,7 @@
 import { memo, useRef, useState, type RefObject } from 'react';
 import { speakerName, type ActionItem, type Chapter, type Highlight, type Row, type Speaker } from '@/lib/types';
 import { clock } from '@/lib/format';
+import { PencilButton } from './bits';
 
 type Props = {
   duration: number;
@@ -16,11 +17,12 @@ type Props = {
   onSeek: (ms: number) => void;
   onToggleSpeaker: (label: number | null) => void;
   byLabel: Map<number, Speaker>;
+  onRename: (s: Speaker) => void;
 };
 
 const LABEL_W = 132; // px, label column; tracks start after it (+ 12px gap)
 
-function Timeline({ duration, rows, speakers, chapters, actions, highlights, hits, hidden, playheadRef, onSeek, onToggleSpeaker, byLabel }: Props) {
+function Timeline({ duration, rows, speakers, chapters, actions, highlights, hits, hidden, playheadRef, onSeek, onToggleSpeaker, byLabel, onRename }: Props) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [hover, setHover] = useState<number | null>(null);
   const pct = (ms: number) => `${(ms / duration) * 100}%`;
@@ -90,7 +92,7 @@ function Timeline({ duration, rows, speakers, chapters, actions, highlights, hit
         {speakers.map(s => {
           const off = hidden.has(s.label);
           return (
-            <Lane key={s.label} speaker={s} share={s.talk_ms / total} off={off} onToggle={() => onToggleSpeaker(s.label)}>
+            <Lane key={s.label} speaker={s} share={s.talk_ms / total} off={off} onToggle={() => onToggleSpeaker(s.label)} onRename={() => onRename(s)}>
               <div className={`${track} h-4 ${off ? 'opacity-30' : ''}`} onClick={e => onSeek(msAt(e.clientX))}>
                 {rows.filter(r => r.speaker === s.label).map(r => (
                   <span
@@ -122,14 +124,17 @@ function Timeline({ duration, rows, speakers, chapters, actions, highlights, hit
   );
 }
 
-function Lane({ speaker, share, off, onToggle, children }: { speaker: Speaker; share: number; off: boolean; onToggle: () => void; children: React.ReactNode }) {
+function Lane({ speaker, share, off, onToggle, onRename, children }: { speaker: Speaker; share: number; off: boolean; onToggle: () => void; onRename: () => void; children: React.ReactNode }) {
   return (
     <>
-      <button onClick={onToggle} title={`${speakerName(speaker)}${speaker.role ? ` · ${speaker.role}` : ''} — click to filter`} className={`flex min-w-0 items-center gap-1.5 text-left ${off ? 'opacity-40' : ''}`}>
-        <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: speaker.color }} />
-        <span className="truncate">{speakerName(speaker)}</span>
-        <span className="ml-auto shrink-0 tabular-nums text-muted">{Math.round(share * 100)}%</span>
-      </button>
+      <div className={`group/name flex min-w-0 items-center ${off ? 'opacity-40' : ''}`}>
+        <button onClick={onToggle} title={`${speakerName(speaker)}${speaker.role ? ` · ${speaker.role}` : ''}. Click to filter`} className="flex min-w-0 flex-1 items-center gap-1.5 text-left">
+          <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: speaker.color }} />
+          <span className="truncate">{speakerName(speaker)}</span>
+        </button>
+        <PencilButton onClick={onRename} label={`Rename ${speakerName(speaker)}`} />
+        <span className="shrink-0 tabular-nums text-muted">{Math.round(share * 100)}%</span>
+      </div>
       {children}
     </>
   );

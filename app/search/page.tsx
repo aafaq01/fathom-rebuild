@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { sql } from '@/lib/db';
 import { clock } from '@/lib/format';
-import { speakerName, type Speaker } from '@/lib/types';
+import type { Speaker } from '@/lib/types';
+import { SpeakerLabel } from '../SpeakerStack';
 
 type Hit = { meeting_id: string; idx: number; title: string; speakers: Speaker[]; speaker: number; start_ms: number; snippet: string; total: number };
 
@@ -76,7 +77,7 @@ export default async function Search({ searchParams }: PageProps<'/search'>) {
                       <Link href={`/m/${id}?t=${r.start_ms}`} className="block px-4 py-3 hover:bg-accent-soft">
                         <div className="flex items-center gap-2 text-xs text-muted">
                           <span className="h-2 w-2 rounded-full" style={{ backgroundColor: s?.color }} />
-                          <span className="font-medium text-fg">{speakerName(s, r.speaker)}</span>
+                          <span className="font-medium text-fg"><SpeakerLabel meetingId={id} speaker={s} label={r.speaker} /></span>
                           <span className="font-mono">{clock(r.start_ms)}</span>
                         </div>
                         <p className="mt-1 text-sm leading-relaxed">{highlight(r.snippet)}</p>

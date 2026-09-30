@@ -1,23 +1,28 @@
 'use client';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { MeetingData } from '@/lib/db';
-import { speakerName, type Highlight } from '@/lib/types';
+import { speakerName, type Highlight, type Speaker } from '@/lib/types';
 import { clock, minutes } from '@/lib/format';
+import { applyNames, useSpeakerNames } from '@/lib/names';
 import Timeline from './Timeline';
 import Transcript from './Transcript';
 import SidePanel from './SidePanel';
-import { Avatar } from './bits';
+import { Avatar, askRename } from './bits';
 
 export default function MeetingView({ data, initialMs }: { data: MeetingData; initialMs: number }) {
   const { meeting, rows, chapters, actions, summaries } = data;
-  const speakers = meeting.speakers; // sorted by talk time at seed
+  const { names, rename } = useSpeakerNames(meeting.id);
+  // Per-browser renames applied once here, so every child (timeline, chips, transcript, owners) follows.
+  const speakers = useMemo(() => applyNames(meeting.speakers, names), [meeting.speakers, names]); // sorted by talk time at seed
   const duration = meeting.duration_ms;
   const byLabel = useMemo(() => new Map(speakers.map(s => [s.label, s])), [speakers]);
+  const onRename = useCallback((s: Speaker) => askRename(s, rename), [rename]);
 
   const mediaRef = useRef<HTMLMediaElement | null>(null);
   const playheadRef = useRef<HTMLDivElement>(null);
   const clockRef = useRef<HTMLSpanElement>(null);
-  const [currentIdx, setCurrentIdx] = useState(-1);
+  // A ?t= deep link shows the right line even before the media has loaded.
+  const [currentIdx, setCurrentIdx] = useState(() => (initialMs ? rows.findLastIndex(r => r.start_ms <= initialMs) : -1));
   const [hidden, setHidden] = useState<Set<number>>(new Set());
   const [query, setQuery] = useState('');
   const [highlights, setHighlights] = useState<Highlight[]>(data.highlights);
@@ -62,8 +67,6 @@ export default function MeetingView({ data, initialMs }: { data: MeetingData; in
     };
   }, [duration, rowAt, initialMs]);
 
-  // A ?t= deep link should show the right line even before the media has loaded.
-  useEffect(() => { if (initialMs) setCurrentIdx(rowAt(initialMs)); }, [initialMs, rowAt]);
 
   const seek = useCallback((ms: number) => {
     const m = mediaRef.current;
@@ -132,7 +135,7 @@ export default function MeetingView({ data, initialMs }: { data: MeetingData; in
       <Timeline
         duration={duration} rows={rows} speakers={speakers} chapters={chapters} actions={actions}
         highlights={highlights} hits={hits} hidden={hidden} playheadRef={playheadRef}
-        onSeek={seek} onToggleSpeaker={toggleSpeaker} byLabel={byLabel}
+        onSeek={seek} onToggleSpeaker={toggleSpeaker} byLabel={byLabel} onRename={onRename}
       />
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
@@ -160,14 +163,14 @@ export default function MeetingView({ data, initialMs }: { data: MeetingData; in
           </div>
           <SidePanel
             meetingId={meeting.id} summaries={summaries} chapters={chapters} actions={actions} highlights={highlights}
-            speakers={speakers} byLabel={byLabel} currentMs={currentMs} onSeek={seek}
+            speakers={speakers} byLabel={byLabel} currentMs={currentMs} onSeek={seek} onRename={onRename}
           />
         </div>
 
         <Transcript
           rows={rows} chapters={chapters} actions={actions} speakers={speakers} byLabel={byLabel}
           currentIdx={currentIdx} hidden={hidden} query={query} setQuery={setQuery} hits={hits}
-          onSeek={seek} onToggleSpeaker={toggleSpeaker} onCreateClip={createClip} rowAt={rowAt}
+          onSeek={seek} onToggleSpeaker={toggleSpeaker} onCreateClip={createClip} rowAt={rowAt} onRename={onRename}
         />
       </div>
 

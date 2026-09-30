@@ -18,9 +18,10 @@ type Props = {
   onToggleSpeaker: (label: number | null) => void;
   onCreateClip: (start_ms: number, end_ms: number) => void;
   rowAt: (ms: number) => number;
+  onRename: (s: Speaker) => void;
 };
 
-export default function Transcript({ rows, chapters, actions, speakers, byLabel, currentIdx, hidden, query, setQuery, hits, onSeek, onToggleSpeaker, onCreateClip, rowAt }: Props) {
+export default function Transcript({ rows, chapters, actions, speakers, byLabel, currentIdx, hidden, query, setQuery, hits, onSeek, onToggleSpeaker, onCreateClip, rowAt, onRename }: Props) {
   const listRef = useRef<HTMLDivElement>(null);
   const [follow, setFollow] = useState(true);
   const [hitPos, setHitPos] = useState(0);
@@ -44,10 +45,10 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
   };
 
   useEffect(() => { if (follow && currentIdx >= 0) scrollTo(currentIdx); }, [currentIdx, follow]);
-  useEffect(() => { setHitPos(0); }, [query]);
-  useEffect(() => { if (activeHit >= 0) { setFollow(false); scrollTo(activeHit); } }, [activeHit]);
-
-  const step = (d: number) => hits.length && setHitPos(p => (p + d + hits.length) % hits.length);
+  // Following a search hit pauses auto-follow; state changes live in the handlers, the effect only scrolls.
+  useEffect(() => { if (activeHit >= 0) scrollTo(activeHit); }, [activeHit]);
+  const search = (q: string) => { setQuery(q); setHitPos(0); if (q.trim().length > 1) setFollow(false); };
+  const step = (d: number) => { if (!hits.length) return; setFollow(false); setHitPos(p => (p + d + hits.length) % hits.length); };
 
   // Selecting words maps to exact word timings via data-s / data-e on each word span.
   const onMouseUp = () => {
@@ -63,7 +64,7 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
     setPending({ start, end, x: r.left + r.width / 2, y: r.top });
   };
 
-  let prevSpeaker = -1;
+  const visible = useMemo(() => rows.filter(r => !hidden.has(r.speaker)), [rows, hidden]);
   const total = speakers.reduce((a, s) => a + s.talk_ms, 0) || 1;
 
   return (
@@ -71,7 +72,7 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
       <div className="flex flex-col gap-2 border-b border-line p-3">
         <div className="flex items-center gap-2">
           <input
-            type="search" value={query} onChange={e => setQuery(e.target.value)}
+            type="search" value={query} onChange={e => search(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') step(e.shiftKey ? -1 : 1); }}
             placeholder="Search this meeting…" aria-label="Search this meeting"
             className="h-9 min-w-0 flex-1 rounded-lg border border-line bg-surface-2 px-3 text-sm outline-none focus:border-accent"
@@ -102,11 +103,9 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
           onWheel={() => { setFollow(false); setPending(null); }} onTouchMove={() => { setFollow(false); setPending(null); }}
           className="absolute inset-0 overflow-y-auto px-2 py-2"
         >
-          {rows.map(r => {
-            if (hidden.has(r.speaker)) return null;
+          {visible.map((r, i) => {
             const chapter = chapterAt.get(r.idx);
-            const showName = r.speaker !== prevSpeaker || !!chapter;
-            prevSpeaker = r.speaker;
+            const showName = i === 0 || visible[i - 1].speaker !== r.speaker || !!chapter;
             return (
               <div key={r.idx}>
                 {chapter && (
@@ -118,7 +117,7 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
                 <RowView
                   row={r} speaker={byLabel.get(r.speaker)} showName={showName}
                   active={r.idx === currentIdx} hit={hitSet.has(r.idx)} activeHit={r.idx === activeHit}
-                  terms={hitSet.has(r.idx) ? terms : NONE} onSeek={onSeek}
+                  terms={hitSet.has(r.idx) ? terms : NONE} onSeek={onSeek} onRename={onRename}
                 />
                 {actionsAt.get(r.idx)?.map(a => (
                   <button key={a.id} onClick={() => onSeek(a.at_ms)} className="mb-1 ml-[60px] flex items-center gap-1.5 rounded-md bg-orange-500/10 px-2 py-1 text-left text-xs text-orange-700 dark:text-orange-300">
@@ -154,8 +153,8 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
 
 const NONE: string[] = [];
 
-const RowView = memo(function RowView({ row, speaker, showName, active, hit, activeHit, terms, onSeek }: {
-  row: Row; speaker: Speaker | undefined; showName: boolean; active: boolean; hit: boolean; activeHit: boolean; terms: string[]; onSeek: (ms: number) => void;
+const RowView = memo(function RowView({ row, speaker, showName, active, hit, activeHit, terms, onSeek, onRename }: {
+  row: Row; speaker: Speaker | undefined; showName: boolean; active: boolean; hit: boolean; activeHit: boolean; terms: string[]; onSeek: (ms: number) => void; onRename: (s: Speaker) => void;
 }) {
   const matches = (w: string) => { const n = w.toLowerCase().replace(/[^\p{L}\p{N}']/gu, ''); return n && terms.some(t => n.includes(t) || t.includes(n) && n.length > 2); };
   return (
@@ -170,7 +169,10 @@ const RowView = memo(function RowView({ row, speaker, showName, active, hit, act
       <div className="min-w-0">
         {(showName || active) && (
           <div className="text-xs font-semibold" style={{ color: speaker?.color }}>
-            {speakerName(speaker, row.speaker)}
+            <button
+              onClick={e => { e.stopPropagation(); if (speaker) onRename(speaker); }}
+              title="Click to rename" className="hover:underline"
+            >{speakerName(speaker, row.speaker)}</button>
             {speaker?.role && <span className="ml-1.5 font-normal text-muted">{speaker.role}</span>}
           </div>
         )}

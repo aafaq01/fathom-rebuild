@@ -8,5 +8,6 @@ export function clock(ms: number) {
 
 export const minutes = (ms: number) => `${Math.round(ms / 60000)} min`;
 
+// Unnamed speakers get a neutral "S7", not a bare digit.
 export const initials = (name: string) =>
-  name.startsWith('Speaker ') ? name.slice(8) : name.split(/\s+/).map(p => p[0]).join('').slice(0, 2).toUpperCase();
+  name.startsWith('Speaker ') ? `S${name.slice(8)}` : name.split(/\s+/).map(p => p[0]).join('').slice(0, 2).toUpperCase();

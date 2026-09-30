@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { connection } from 'next/server';
 import { sql } from '@/lib/db';
-import { minutes, initials } from '@/lib/format';
+import { minutes } from '@/lib/format';
 import { shortDate } from '@/lib/dates';
-import { speakerName, type Meeting } from '@/lib/types';
+import type { Meeting } from '@/lib/types';
+import SpeakerStack from './SpeakerStack';
 
 type Card = Pick<Meeting, 'id' | 'title' | 'recorded_at' | 'duration_ms' | 'speakers'> & { actions: number; chapters: number };
 
@@ -29,8 +30,6 @@ export default async function Home() {
       ) : (
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {meetings.map(m => {
-            const top = [...m.speakers].sort((a, b) => (b.talk_ms ?? 0) - (a.talk_ms ?? 0));
-            const extra = top.length - 6;
             return (
               <li key={m.id}>
                 <Link
@@ -44,26 +43,7 @@ export default async function Home() {
                     </p>
                   </div>
                   <div className="mt-auto flex items-center justify-between gap-3">
-                    <div className="flex -space-x-2">
-                      {top.slice(0, 6).map(s => {
-                        const name = speakerName(s);
-                        return (
-                          <span
-                            key={s.label}
-                            title={name}
-                            className="grid h-8 w-8 place-items-center rounded-full text-[11px] font-semibold text-white ring-2 ring-surface"
-                            style={{ backgroundColor: s.color }}
-                          >
-                            {initials(name)}
-                          </span>
-                        );
-                      })}
-                      {extra > 0 && (
-                        <span className="grid h-8 w-8 place-items-center rounded-full bg-surface-2 text-[11px] font-semibold text-muted ring-2 ring-surface">
-                          +{extra}
-                        </span>
-                      )}
-                    </div>
+                    <SpeakerStack meetingId={m.id} speakers={m.speakers} />
                     <p className="text-right text-xs text-muted">
                       {plural(m.actions, 'action item')} · {plural(m.chapters, 'chapter')}
                     </p>

@@ -15,10 +15,11 @@ type Props = {
   byLabel: Map<number, Speaker>;
   currentMs: number;
   onSeek: (ms: number) => void;
+  onRename: (s: Speaker) => void;
 };
 type Tab = 'summary' | 'chapters' | 'actions' | 'clips';
 
-function SidePanel({ meetingId, summaries, chapters, actions, highlights, speakers, byLabel, currentMs, onSeek }: Props) {
+function SidePanel({ meetingId, summaries, chapters, actions, highlights, speakers, byLabel, currentMs, onSeek, onRename }: Props) {
   const [tab, setTab] = useState<Tab>('summary');
   const tabs: [Tab, string][] = [
     ['summary', 'Summary'],
@@ -63,7 +64,7 @@ function SidePanel({ meetingId, summaries, chapters, actions, highlights, speake
           </ol>
         )}
 
-        {tab === 'actions' && <Actions actions={actions} speakers={speakers} byLabel={byLabel} onSeek={onSeek} />}
+        {tab === 'actions' && <Actions actions={actions} speakers={speakers} byLabel={byLabel} onSeek={onSeek} onRename={onRename} />}
 
         {tab === 'clips' && (highlights.length ? (
           <ul className="flex flex-col gap-3">
@@ -146,7 +147,7 @@ function SummaryTab({ meetingId, initial, onSeek }: { meetingId: string; initial
 }
 
 // Grouped by owner: with eight people on a call, "who owns what" is the question.
-function Actions({ actions, speakers, byLabel, onSeek }: { actions: ActionItem[]; speakers: Speaker[]; byLabel: Map<number, Speaker>; onSeek: (ms: number) => void }) {
+function Actions({ actions, speakers, byLabel, onSeek, onRename }: { actions: ActionItem[]; speakers: Speaker[]; byLabel: Map<number, Speaker>; onSeek: (ms: number) => void; onRename: (s: Speaker) => void }) {
   const [done, setDone] = useState<Set<number>>(() => new Set(actions.filter(a => a.done).map(a => a.id)));
   if (!actions.length) return <Empty>No action items were committed to in this meeting.</Empty>;
   const owners = [...speakers.map(s => s.label), null].filter(o => actions.some(a => a.owner === o));
@@ -159,7 +160,9 @@ function Actions({ actions, speakers, byLabel, onSeek }: { actions: ActionItem[]
           <div key={String(o)}>
             <div className="mb-2 flex items-center gap-2">
               {s ? <Avatar speaker={s} /> : <span className="grid h-6 w-6 place-items-center rounded-full bg-surface-2 text-xs text-muted">?</span>}
-              <span className="font-medium">{s ? speakerName(s) : 'Unassigned'}</span>
+              {s
+                ? <button onClick={() => onRename(s)} title="Click to rename" className="font-medium hover:underline">{speakerName(s)}</button>
+                : <span className="font-medium">Unassigned</span>}
               {s?.role && <span className="truncate text-xs text-muted">{s.role}</span>}
               <span className="ml-auto text-xs text-muted">{items.length}</span>
             </div>

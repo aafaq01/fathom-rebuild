@@ -5,7 +5,8 @@ import { cache } from 'react';
 import { sql } from '@/lib/db';
 import { clock } from '@/lib/format';
 import { shortDate } from '@/lib/dates';
-import { speakerName, type Chapter, type Highlight, type Meeting, type Row } from '@/lib/types';
+import type { Chapter, Highlight, Meeting, Row } from '@/lib/types';
+import { SpeakerLabel } from '../../SpeakerStack';
 import ClipPlayer from './clip-player';
 
 const load = cache(async (id: string) => {
@@ -73,7 +74,7 @@ export default async function ClipPage({ params }: PageProps<'/c/[id]'>) {
               <li key={r.idx} className={inClip ? '' : 'opacity-50'}>
                 <div className="flex items-center gap-2 text-xs text-muted">
                   <span className="h-2 w-2 rounded-full" style={{ backgroundColor: s?.color }} />
-                  <span className="font-medium text-fg">{speakerName(s, r.speaker)}</span>
+                  <span className="font-medium text-fg"><SpeakerLabel meetingId={h.meeting_id} speaker={s} label={r.speaker} /></span>
                   <span className="font-mono">{clock(r.start_ms)}</span>
                 </div>
                 <p className={`mt-1 leading-relaxed ${inClip ? 'border-l-2 border-accent pl-3 font-medium' : 'pl-3.5 text-sm'}`}>{r.text}</p>
