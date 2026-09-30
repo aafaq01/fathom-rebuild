@@ -1,7 +1,9 @@
 import { neon } from '@neondatabase/serverless';
 import type { Meeting, Row, Chapter, ActionItem, Summary, Highlight } from './types';
 
-export const sql = neon(process.env.DATABASE_URL!);
+// ponytail: placeholder only lets `next build` import this without a DB; every page is dynamic,
+// so a missing DATABASE_URL still fails loudly on the first real query.
+export const sql = neon(process.env.DATABASE_URL || 'postgresql://missing:missing@localhost/missing');
 
 export async function getMeeting(id: string) {
   const [meeting] = (await sql`select * from meetings where id = ${id} and status = 'ready'`) as Meeting[];

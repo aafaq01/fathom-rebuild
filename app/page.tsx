@@ -1,11 +1,79 @@
-// ponytail: placeholder until box 5 (meetings list + search) replaces it
-export default function Home() {
+import Link from 'next/link';
+import { connection } from 'next/server';
+import { sql } from '@/lib/db';
+import { minutes, initials } from '@/lib/format';
+import { shortDate } from '@/lib/dates';
+import { speakerName, type Meeting } from '@/lib/types';
+
+type Card = Pick<Meeting, 'id' | 'title' | 'recorded_at' | 'duration_ms' | 'speakers'> & { actions: number; chapters: number };
+
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
+
+export default async function Home() {
+  await connection();
+  const meetings = (await sql`
+    select m.id, m.title, m.recorded_at, m.duration_ms, m.speakers,
+      (select count(*)::int from action_items a where a.meeting_id = m.id) as actions,
+      (select count(*)::int from chapters c where c.meeting_id = m.id) as chapters
+    from meetings m
+    where m.status = 'ready'
+    order by m.recorded_at desc nulls last, m.created_at desc`) as Card[];
+
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center gap-4 px-6 py-24">
-      <h1 className="text-3xl font-semibold tracking-tight">Fathom rebuild</h1>
-      <p className="text-lg text-zinc-600 dark:text-zinc-400">
-        An AI meeting notetaker built for the long, crowded call. Seeded meetings are on the way.
-      </p>
+    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:py-14">
+      <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Meetings</h1>
+      <p className="mt-2 text-muted">Meeting notes built for the long, crowded call.</p>
+
+      {meetings.length === 0 ? (
+        <p className="mt-10 rounded-xl border border-dashed border-line p-10 text-center text-muted">No meetings yet.</p>
+      ) : (
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+          {meetings.map(m => {
+            const top = [...m.speakers].sort((a, b) => (b.talk_ms ?? 0) - (a.talk_ms ?? 0));
+            const extra = top.length - 6;
+            return (
+              <li key={m.id}>
+                <Link
+                  href={`/m/${m.id}`}
+                  className="group flex h-full flex-col gap-4 rounded-xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-visible:border-accent focus-visible:outline-none"
+                >
+                  <div>
+                    <h2 className="font-medium leading-snug group-hover:text-accent">{m.title}</h2>
+                    <p className="mt-1 text-sm text-muted">
+                      {[shortDate(m.recorded_at), m.duration_ms ? minutes(m.duration_ms) : null].filter(Boolean).join(' · ')}
+                    </p>
+                  </div>
+                  <div className="mt-auto flex items-center justify-between gap-3">
+                    <div className="flex -space-x-2">
+                      {top.slice(0, 6).map(s => {
+                        const name = speakerName(s);
+                        return (
+                          <span
+                            key={s.label}
+                            title={name}
+                            className="grid h-8 w-8 place-items-center rounded-full text-[11px] font-semibold text-white ring-2 ring-surface"
+                            style={{ backgroundColor: s.color }}
+                          >
+                            {initials(name)}
+                          </span>
+                        );
+                      })}
+                      {extra > 0 && (
+                        <span className="grid h-8 w-8 place-items-center rounded-full bg-surface-2 text-[11px] font-semibold text-muted ring-2 ring-surface">
+                          +{extra}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-right text-xs text-muted">
+                      {plural(m.actions, 'action item')} · {plural(m.chapters, 'chapter')}
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </main>
   );
 }
