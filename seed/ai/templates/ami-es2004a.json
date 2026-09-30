@@ -1,0 +1,308 @@
+{
+  "decisions": [
+    {
+      "heading": "Decisions made",
+      "bullets": [
+        {
+          "text": "No formal design decisions were made; this was a kick-off meeting covering introductions, agenda, and initial idea sharing. Sarah outlined the project stages: functional design, conceptual design, and detailed design.",
+          "row": 9
+        },
+        {
+          "text": "Team agreed the remote should target a broad international market (all age groups, not business-specific), rather than focusing on language localization.",
+          "row": 72
+        },
+        {
+          "text": "Team leaned toward not using metal, favoring lightweight molded plastic for cost and design flexibility (Speaker 2, Speaker 5 discussion).",
+          "row": 92
+        }
+      ]
+    },
+    {
+      "heading": "Risks & concerns",
+      "bullets": [
+        {
+          "text": "Sarah raised concern about remotes with too many small buttons/labels being confusing to use.",
+          "row": 75
+        },
+        {
+          "text": "Speaker 2 noted universal remotes can lose programmed signals and require reprogramming, which was frustrating.",
+          "row": 73
+        },
+        {
+          "text": "Speaker 5 raised concern about how much screen quality can be afforded within the €12.50 production cost.",
+          "row": 86
+        },
+        {
+          "text": "Speaker 3/5 raised concern that older generations (e.g., grandparents) may struggle with any remote regardless of design improvements.",
+          "row": 83
+        },
+        {
+          "text": "Speaker 2 noted a flip-top or larger screen design might have cost implications and could make the remote look bulky.",
+          "row": 91
+        }
+      ]
+    },
+    {
+      "heading": "Open questions",
+      "bullets": [
+        {
+          "text": "Whether to undercut competitors' price (~£20) or risk the product looking cheap by pricing lower (raised by Speaker 2).",
+          "row": 67
+        },
+        {
+          "text": "Whether an LCD menu display (like a mobile phone) should be incorporated into the remote, proposed by Speaker 2 and Speaker 3.",
+          "row": 78
+        },
+        {
+          "text": "Whether a large-print button/mode should be added for older users, proposed by Speaker 2.",
+          "row": 87
+        },
+        {
+          "text": "Whether a dual-function design (basic buttons plus a menu for advanced functions) should be used, proposed by Sarah and Speaker 2.",
+          "row": 88
+        },
+        {
+          "text": "Whether a flip-top design (like some mobile phones) could allow for a bigger screen, proposed by Speaker 2.",
+          "row": 89
+        }
+      ]
+    }
+  ],
+  "standup": [
+    {
+      "heading": "Sarah (Project manager)",
+      "bullets": [
+        {
+          "text": "Done: Opened the kick-off meeting, introduced herself as project manager and presented the agenda covering introductions, tool training, project plan, and individual ideas within a 25-minute window",
+          "row": 8
+        },
+        {
+          "text": "Done: Outlined the project brief for a remote control that is original, trendy, appealing to a wide market, and user-friendly for grannies, kids, and even pets",
+          "row": 9
+        },
+        {
+          "text": "Done: Explained the three design stages: functional design, conceptual design, and detailed design",
+          "row": 10
+        },
+        {
+          "text": "Done: Led the icebreaker exercise by drawing a tiger and describing it as majestic, independent, and proud",
+          "row": 15
+        },
+        {
+          "text": "Done: Presented finance details including selling price (€25), production cost (€12.50), and profit aim (€50,000,000)",
+          "row": 68
+        },
+        {
+          "text": "Done: Shared personal experience with universal remote controls losing signal and needing reprogramming",
+          "row": 73
+        },
+        {
+          "text": "Next: Team will break for 30 minutes to work individually, then reconvene; Sarah will prepare another PowerPoint presentation",
+          "row": 94
+        }
+      ]
+    },
+    {
+      "heading": "Speaker 2 (User experience/design perspective)",
+      "bullets": [
+        {
+          "text": "Done: Drew a big cat/eagle in the icebreaker, describing eagles as independent, free-spirited, and birds of prey",
+          "row": 51
+        },
+        {
+          "text": "Done: Shared experience of only using basic remote functions (on/off, volume, channel) without programming",
+          "row": 74
+        },
+        {
+          "text": "Done: Suggested incorporating a mobile-phone-style menu/LCD display into the remote design to avoid too many buttons",
+          "row": 78
+        },
+        {
+          "text": "Done: Proposed a large-print button option for older users, similar to large print books",
+          "row": 87
+        },
+        {
+          "text": "Done: Suggested a flip-top design like mobile phones to allow for a bigger screen when needed",
+          "row": 89
+        },
+        {
+          "text": "Done: Noted that plastic materials could keep the remote lightweight and inexpensive to produce",
+          "row": 92
+        }
+      ]
+    },
+    {
+      "heading": "Speaker 3 (Interface/design ideas)",
+      "bullets": [
+        {
+          "text": "Done: Drew a dog in the icebreaker, highlighting its supportiveness, loyalty, and intuition as unique traits",
+          "row": 29
+        },
+        {
+          "text": "Done: Agreed with the idea of adding an LCD menu display similar to mobile phones to simplify navigation",
+          "row": 79
+        },
+        {
+          "text": "Done: Raised concern about cost implications of a bulkier or flip-top screen design",
+          "row": 91
+        }
+      ]
+    },
+    {
+      "heading": "Speaker 5 (Marketing/company research)",
+      "bullets": [
+        {
+          "text": "Done: Drew an animal that evolved from a T-Rex attempt into a pelican/crocodile, describing it as scary and strong",
+          "row": 38
+        },
+        {
+          "text": "Done: Helped estimate the selling price conversion from euros to pounds (~£17)",
+          "row": 62
+        },
+        {
+          "text": "Done: Noted existing remote controls on the market are already priced around £20",
+          "row": 64
+        },
+        {
+          "text": "Done: Shared that his grandad is actually skilled with teletext, showing older users can adapt to some tech",
+          "row": 82
+        },
+        {
+          "text": "Done: Reported that the company website emphasizes 'putting fashion into electronics,' suggesting design and aesthetics matter for the project",
+          "row": 95
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "heading": "Sarah (Project manager)",
+      "bullets": [
+        {
+          "text": "Will prepare another PowerPoint presentation before the next meeting.",
+          "row": 94
+        },
+        {
+          "text": "Set next meeting time in half an hour after individual work.",
+          "row": 99
+        }
+      ]
+    },
+    {
+      "heading": "Speaker 5 (marketing/company research)",
+      "bullets": [
+        {
+          "text": "Will pull up currency conversion info/app and put notes (e.g., pricing conversions) into the shared folder for reference.",
+          "row": 64
+        }
+      ]
+    },
+    {
+      "heading": "Unassigned",
+      "bullets": [
+        {
+          "text": "Each team member is to go off individually and work on the functional design (user needs, product effects) before reconvening.",
+          "row": 8
+        },
+        {
+          "text": "Team to break for individual work and reconvene in half an hour to continue discussion.",
+          "row": 93
+        }
+      ]
+    },
+    {
+      "heading": "Loose ends",
+      "bullets": [
+        {
+          "text": "Whether to incorporate an LCD menu display (like a mobile phone) into the remote control design was raised but not assigned for follow-up.",
+          "row": 79
+        },
+        {
+          "text": "Idea of a flip-top remote control with a larger screen when flipped open was proposed but not assigned.",
+          "row": 89
+        },
+        {
+          "text": "Idea of an extra 'large print' button/mode for older users was raised but not assigned.",
+          "row": 87
+        },
+        {
+          "text": "Question of whether to undercut competitor pricing (~£17-20) or position as a premium product was raised but not resolved.",
+          "row": 67
+        },
+        {
+          "text": "Whether to use plastic vs. metal casing, and its cost implications, was discussed but no decision or owner assigned.",
+          "row": 96
+        }
+      ]
+    }
+  ],
+  "exec": [
+    {
+      "heading": "TL;DR",
+      "bullets": [
+        {
+          "text": "Sarah opened the kickoff meeting for the remote control project, outlining the agenda: introductions, tool training, project plan, and individual design ideas within a 25-minute window.",
+          "row": 8
+        },
+        {
+          "text": "Team did an icebreaker drawing exercise (animals: tiger, dog, unidentified animal, crocodile/pelican, eagle) to describe personalities before diving into design discussion.",
+          "row": 9
+        },
+        {
+          "text": "Group discussed remote control finances (selling price €25, production cost €12.50, profit target €50,000,000) and brainstormed design ideas like LCD menus, large-print modes, and flip-top screens inspired by mobile phones.",
+          "row": 58
+        }
+      ]
+    },
+    {
+      "heading": "Outcomes",
+      "bullets": [
+        {
+          "text": "Established target product qualities: original, trendy, user-friendly for all ages (grannies to kids), international market focus, not overly complex.",
+          "row": 9
+        },
+        {
+          "text": "Confirmed financial parameters: €25 selling price (~£17), €12.50 production cost, and €50,000,000 profit aim, likely for first year.",
+          "row": 68
+        },
+        {
+          "text": "Agreed market scope is broad/international, not segmented by language or business vs. consumer, per Sarah and Speaker 2's discussion.",
+          "row": 72
+        },
+        {
+          "text": "Generated concrete design ideas: LCD menu display (like mobile phones), dual-function design (basic buttons + menu for advanced functions), large-print toggle button for accessibility, and flip-top screen concept.",
+          "row": 79
+        },
+        {
+          "text": "Discussed materials: agreed plastic (not metal) likely keeps costs down and can still look stylish, referencing company's 'fashion into electronics' branding found by Speaker 5.",
+          "row": 95
+        },
+        {
+          "text": "Meeting closed with plan to break for 25 minutes for individual work before reconvening.",
+          "row": 93
+        }
+      ]
+    },
+    {
+      "heading": "Needs attention",
+      "bullets": [
+        {
+          "text": "Unresolved question on whether to undercut competitor pricing (~£20 for existing remotes) or risk looking like a 'cheap' product—flagged by Speaker 2 but not decided.",
+          "row": 67
+        },
+        {
+          "text": "Concern that older users (e.g., grandparents) struggle with programming remotes/menus regardless of design changes; no concrete solution decided beyond intuitive icons.",
+          "row": 83
+        },
+        {
+          "text": "Cost feasibility of adding an LCD screen or flip-top design at the €12.50 production budget was raised as a concern by Speaker 4 and Speaker 3, not resolved.",
+          "row": 86
+        },
+        {
+          "text": "Speaker 5 suggested making notes/shared folder for financial figures discussed, but no explicit owner or process was assigned.",
+          "row": 64
+        }
+      ]
+    }
+  ]
+}

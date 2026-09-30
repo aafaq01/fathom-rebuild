@@ -20,7 +20,7 @@ export async function getMeeting(id: string) {
     rows: rows as Row[],
     chapters: chapters as Chapter[],
     actions: actions as ActionItem[],
-    summary: (summaries as Summary[]).find(s => s.template === 'general') ?? null,
+    summaries: summaries as Summary[],
     highlights: highlights as Highlight[],
   };
 }

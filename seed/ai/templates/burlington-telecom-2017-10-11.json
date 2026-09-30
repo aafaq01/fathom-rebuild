@@ -1,0 +1,333 @@
+{
+  "decisions": [
+    {
+      "heading": "Decisions made",
+      "bullets": [
+        {
+          "text": "No formal sale decision was made by BTAB at this meeting; the board's role remains to advise, and the actual narrowing of bidders is being handled by the City Council, which planned to meet the following Monday to narrow the four proposals to two (per David Provost).",
+          "row": 42
+        },
+        {
+          "text": "The board approved the agenda and the July 12 BTAB meeting minutes by voice vote (moved/seconded, no objections).",
+          "row": 3
+        },
+        {
+          "text": "David Provost raised whether it would be appropriate for the Council to hear directly from BT staff/operators about the sale, and it was agreed this was a good idea; Provost said he would talk to the council president about arranging it.",
+          "row": 108
+        }
+      ]
+    },
+    {
+      "heading": "Risks & concerns",
+      "bullets": [
+        {
+          "text": "Carolyn Bates (public comment) worried BT could be sold to an outside corporation and proposed involving KBTL and an outside financial backer (Shures) as a compromise to keep BT locally run.",
+          "row": 8
+        },
+        {
+          "text": "Deb Flanders (public comment) feared rate increases and declining service if BT is sold to an outside corporation, and voiced support for KBTL's local ownership model.",
+          "row": 20
+        },
+        {
+          "text": "Kit Andrews (public comment) noted Church Street business owners are nervous about BT being owned by a large corporation, citing 24 signatures on a petition supporting KBTL.",
+          "row": 30
+        },
+        {
+          "text": "Joan Shannon raised concern about what legal/contractual protections will be built into the second sale to prevent BT from being absorbed by a large corporate conglomerate like Comcast.",
+          "row": 75
+        },
+        {
+          "text": "Joan Shannon raised concern about how prospective buyers would handle and protect customer data/privacy, urging attention to encryption and data protection policies going forward.",
+          "row": 80
+        },
+        {
+          "text": "Stephen Barraclough reported BT is losing customer service staff (2 of 4, i.e., 50%) and cannot replace them or entice new hires given the pending sale, creating operational risk.",
+          "row": 123
+        },
+        {
+          "text": "Stephen Barraclough noted that some prospective business partners/developments are stalling because they want to know who the new BT owner will be before proceeding.",
+          "row": 127
+        },
+        {
+          "text": "Speaker 7 (city councilor) raised concern about public comments questioning the integrity of Dorman & Faucette/Terry Dorman and Stephen Barraclough, saying such accusations of steering the process were unfair and unfounded.",
+          "row": 168
+        }
+      ]
+    },
+    {
+      "heading": "Open questions",
+      "bullets": [
+        {
+          "text": "Whether Ting (referred to as 'King'/'Ting') will commit in writing to keeping the BT name, and for how long — Terry Dorman said clarification was still being sought.",
+          "row": 50
+        },
+        {
+          "text": "Whether specific legal protections against being absorbed by a large corporate conglomerate will be included in final sale documents — Terry Dorman said this is expected to be part of ongoing discussions but no specific language has been advanced yet.",
+          "row": 77
+        },
+        {
+          "text": "Whether BT will formally negotiate stronger data protection/encryption commitments with the new owner — Jeremy Bacher said BT follows industry best practices but did not commit to specific new measures.",
+          "row": 97
+        },
+        {
+          "text": "Whether the City Council will invite BT staff/management to share their views on the sale — raised by David Provost, unresolved at meeting's end.",
+          "row": 108
+        },
+        {
+          "text": "Whether BT's full-year financial forecast (revenue/EBITDA) will be revised upward given strong Q1 results — Stephen Barraclough said it's too early to say.",
+          "row": 135
+        }
+      ]
+    }
+  ],
+  "standup": [
+    {
+      "heading": "David Provost (BTAB Chair)",
+      "bullets": [
+        {
+          "text": "Done: Reported the city council has been working through the four sale proposals and plans to narrow to two buyers at Monday's meeting",
+          "row": 42
+        },
+        {
+          "text": "Done: Noted Dorman & Faucette will negotiate with the two remaining bidders through the document stage after narrowing",
+          "row": 44
+        },
+        {
+          "text": "Done: Shared that Ting (Shores) bought out HBC/Hiawatha, the Midwest telecom that originally advised BT's turnaround, now expanded to 22 communities",
+          "row": 47
+        },
+        {
+          "text": "Done: Confirmed Ting has agreed to keep the BT name, at least for a period, pending clarification",
+          "row": 51
+        },
+        {
+          "text": "Next: Encouraged BTAB members to attend Monday's council meeting to share thoughts before the final vote",
+          "row": 118
+        },
+        {
+          "text": "Next: Will consider asking the council to hear directly from BT staff about their views on the sale",
+          "row": 113
+        }
+      ]
+    },
+    {
+      "heading": "Terry Dorman (Advisor, Dorman & Faucette)",
+      "bullets": [
+        {
+          "text": "Done: Said recent proposal changes are mostly clarifications and indications of willingness to change, with more detail expected from Ting shortly",
+          "row": 50
+        },
+        {
+          "text": "Done: Confirmed data protection/privacy safeguards are expected to be a critical part of the legal document phase with bidders, though no specific language has been advanced yet",
+          "row": 77
+        },
+        {
+          "text": "Next: Will circulate the next round of proposal clarifications from Ting as soon as received",
+          "row": 50
+        }
+      ]
+    },
+    {
+      "heading": "Stephen Barraclough (BT General Manager)",
+      "bullets": [
+        {
+          "text": "Done: Reported BT modeled itself on HBC/Hiawatha for years and recently reconnected with HBC's CEO Dan Pekarena about the Ting/HBC deal",
+          "row": 58
+        },
+        {
+          "text": "Done: BT ended Q1 (through end of September) at 7,224 subscribers, a net increase of 243 in the quarter, 35% higher growth than the same quarter last year",
+          "row": 122
+        },
+        {
+          "text": "Blocker: Lost two of BT's customer service staff (50% of that team) and cannot ethically recruit replacements while the sale is pending, relying on temps in the meantime",
+          "row": 123
+        },
+        {
+          "text": "Blocker: Two or three promising business development prospects are stalling because those companies want to know who BT's new owner will be before continuing talks",
+          "row": 127
+        },
+        {
+          "text": "Done: Confirmed residential demand remains robust despite uncertainty, though some business-side softness is emerging",
+          "row": 129
+        },
+        {
+          "text": "Next: Build-out remains on plan; new North End storefront in Ethan Allen Mall tentatively set to open November 1 despite reduced customer service staffing",
+          "row": 133
+        },
+        {
+          "text": "Next: Will review Q1 results against full-year forecast (currently $10M revenue, $4M EBITDA) and assess whether to accelerate build-out in unbuilt areas if cash flow supports it",
+          "row": 134
+        },
+        {
+          "text": "Done: Reaffirmed BT's policy of never selling customer data, calling it a firm, non-negotiable stance",
+          "row": 83
+        },
+        {
+          "text": "Next: Promoting Innovation Week events (BTV Ignite) including Mont Hack, Tech Jam, and speaker events featuring the Governor, Mike Schirling, and the Mayor",
+          "row": 140
+        }
+      ]
+    },
+    {
+      "heading": "Jeremy Bacher (BT/burlington.com technical staff)",
+      "bullets": [
+        {
+          "text": "Done: Explained BT operates as a traditional ISP offering unfettered internet access; customers can choose their own encryption/VPN but BT doesn't encrypt data flows itself",
+          "row": 88
+        },
+        {
+          "text": "Done: Confirmed customer billing data (names, addresses, account info) is hosted by a vendor (Mid America) in an encrypted, internet-isolated system",
+          "row": 95
+        },
+        {
+          "text": "Next: Committed to following industry best practices and adopting end-to-end encryption standards as they become available industry-wide",
+          "row": 99
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "heading": "David Provost (BTAB Chair)",
+      "bullets": [
+        {
+          "text": "Offered to talk to the council president about having BT staff share their views/perspective with the city council on the sale process.",
+          "row": 113
+        },
+        {
+          "text": "Will encourage BTAB members to attend the Monday council meeting where bidders will be narrowed to two, and to share their thoughts there.",
+          "row": 118
+        }
+      ]
+    },
+    {
+      "heading": "Terry Dorman (Advisor, Dorman & Faucette)",
+      "bullets": [
+        {
+          "text": "Will circulate clarification from Ting (referred to as 'King') on certain proposal elements as soon as it is received.",
+          "row": 50
+        },
+        {
+          "text": "Committed to ensuring buyer protections for Burlington (e.g., against being absorbed by a large corporate conglomerate) remain a critical part of the legal document/negotiation phase with remaining bidders.",
+          "row": 77
+        }
+      ]
+    },
+    {
+      "heading": "Stephen Barraclough (BT General Manager)",
+      "bullets": [
+        {
+          "text": "Plans to share more details on two or three promising business development prospects in executive session, likely next month, to avoid tipping off competitors like Comcast and First Light.",
+          "row": 127
+        },
+        {
+          "text": "BT is tentatively scheduled to open the Ethan Allen Mall storefront in the New North End on November 1, and management will rotate staffing it given limited customer service staff.",
+          "row": 133
+        },
+        {
+          "text": "Will review first quarter results carefully to assess full-year revenue/EBITDA forecast implications (current forecast: $10M revenue, $4M EBITDA) before the next meeting.",
+          "row": 134
+        }
+      ]
+    },
+    {
+      "heading": "Unassigned",
+      "bullets": [
+        {
+          "text": "BT staff/operators should be given an opportunity to share their views and beliefs with the city council, though no specific person was tasked with organizing this beyond David's offer to raise it with the council president.",
+          "row": 109
+        }
+      ]
+    },
+    {
+      "heading": "Loose ends",
+      "bullets": [
+        {
+          "text": "Question of how customer data (billing/account info such as names, addresses) would be protected or encrypted under a new owner was discussed but not resolved with any concrete commitment beyond current practices.",
+          "row": 85
+        },
+        {
+          "text": "Whether data protection/encryption practices can or should be negotiated as part of the sale terms remains an open question raised by Joan Shannon.",
+          "row": 97
+        },
+        {
+          "text": "The city council's Monday meeting was expected to narrow bidders from three to two, with negotiations through the document stage to follow, but the outcome was not yet known at meeting time.",
+          "row": 42
+        },
+        {
+          "text": "Ting's willingness to keep the Burlington Telecom name was said to need further clarification from Ting, which had not yet been provided.",
+          "row": 53
+        }
+      ]
+    }
+  ],
+  "exec": [
+    {
+      "heading": "TL;DR",
+      "bullets": [
+        {
+          "text": "BTAB heard public comment strongly favoring Keep Burlington Telecom Local (KBTL), including a suggestion to pair KBTL with Indiana-based Shures/HBC for financing (#7-#14, #26-#38).",
+          "row": 7
+        },
+        {
+          "text": "Sale process update: City Council is meeting Monday to narrow four bidders to two; Dorman & Faucette continues negotiating clarifications, including Ting's agreement to keep the BT name for a period (#42-#53).",
+          "row": 42
+        },
+        {
+          "text": "BT reported a strong first quarter (7,224 subscribers, up 243 net, 35% above last year) but flagged staffing losses in customer service and business customers delaying deals pending sale outcome (#122-#128).",
+          "row": 122
+        }
+      ]
+    },
+    {
+      "heading": "Outcomes",
+      "bullets": [
+        {
+          "text": "BTAB agenda and July 12 minutes were approved without changes (#3-#5).",
+          "row": 3
+        },
+        {
+          "text": "Confirmed development: Shures/HBC bought out Hiawatha (HBC), which BTAB had previously flagged as meeting expansion criteria (17→22 communities) (#47-#48).",
+          "row": 47
+        },
+        {
+          "text": "Ting has agreed (pending final clarification) to retain the Burlington Telecom name for a period after sale (#51-#53).",
+          "row": 51
+        },
+        {
+          "text": "David Provost confirmed BTAB's recommendations on bidders (with redacted info on those not advanced) have already been sent to and are part of the public record for city council (#117).",
+          "row": 117
+        },
+        {
+          "text": "Group agreed it would be worthwhile for city council to hear directly from BT staff/management on their views before finalizing a buyer; David Provost will raise this with the council president (#108-#115).",
+          "row": 108
+        }
+      ]
+    },
+    {
+      "heading": "Needs attention",
+      "bullets": [
+        {
+          "text": "Data protection/privacy commitments (encryption, no data sale) need to be explicitly negotiated into final sale documents per Joan Shannon's request; Terry Dorman confirmed protections are expected to be part of legal document phase but no specific language has been drafted yet (#75-#85, #97-#98).",
+          "row": 77
+        },
+        {
+          "text": "BT has lost 2 of 4 customer service staff and cannot hire replacements while sale is pending, straining operations (#123-#126).",
+          "row": 123
+        },
+        {
+          "text": "Business customers (2-3 major prospects) are delaying deals until new BT ownership is confirmed, creating revenue uncertainty (#127-#128).",
+          "row": 127
+        },
+        {
+          "text": "Stephen Barraclough's own future with BT post-sale is undecided; he will not discuss potential employment with any of the three bidders until after PUC approval and handover (#67-#70, #103-#107).",
+          "row": 103
+        },
+        {
+          "text": "Monday's council meeting will narrow bidders to two for continued document-stage negotiation; outcome and final buyer selection remain pending (#42-#44).",
+          "row": 42
+        }
+      ]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ import SidePanel from './SidePanel';
 import { Avatar } from './bits';
 
 export default function MeetingView({ data, initialMs }: { data: MeetingData; initialMs: number }) {
-  const { meeting, rows, chapters, actions, summary } = data;
+  const { meeting, rows, chapters, actions, summaries } = data;
   const speakers = meeting.speakers; // sorted by talk time at seed
   const duration = meeting.duration_ms;
   const byLabel = useMemo(() => new Map(speakers.map(s => [s.label, s])), [speakers]);
@@ -159,7 +159,7 @@ export default function MeetingView({ data, initialMs }: { data: MeetingData; in
             </div>
           </div>
           <SidePanel
-            summary={summary} chapters={chapters} actions={actions} highlights={highlights}
+            meetingId={meeting.id} summaries={summaries} chapters={chapters} actions={actions} highlights={highlights}
             speakers={speakers} byLabel={byLabel} currentMs={currentMs} onSeek={seek}
           />
         </div>

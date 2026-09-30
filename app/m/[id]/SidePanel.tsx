@@ -2,10 +2,12 @@
 import { memo, useState } from 'react';
 import { speakerName, type ActionItem, type Chapter, type Highlight, type Speaker, type Summary } from '@/lib/types';
 import { clock } from '@/lib/format';
+import { TEMPLATES, stripRowRefs, type TemplateId } from '@/lib/templates.ts';
 import { Avatar, TimeChip } from './bits';
 
 type Props = {
-  summary: Summary | null;
+  meetingId: string;
+  summaries: Summary[];
   chapters: Chapter[];
   actions: ActionItem[];
   highlights: Highlight[];
@@ -16,7 +18,7 @@ type Props = {
 };
 type Tab = 'summary' | 'chapters' | 'actions' | 'clips';
 
-function SidePanel({ summary, chapters, actions, highlights, speakers, byLabel, currentMs, onSeek }: Props) {
+function SidePanel({ meetingId, summaries, chapters, actions, highlights, speakers, byLabel, currentMs, onSeek }: Props) {
   const [tab, setTab] = useState<Tab>('summary');
   const tabs: [Tab, string][] = [
     ['summary', 'Summary'],
@@ -36,23 +38,7 @@ function SidePanel({ summary, chapters, actions, highlights, speakers, byLabel, 
         ))}
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto p-4 text-sm">
-        {tab === 'summary' && (summary ? (
-          <div className="flex flex-col gap-5">
-            {summary.sections.map(sec => (
-              <div key={sec.heading}>
-                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">{sec.heading}</h3>
-                <ul className="flex flex-col gap-2">
-                  {sec.bullets.map((b, i) => (
-                    <li key={i} className="flex items-start gap-2 leading-relaxed">
-                      <TimeChip ms={b.at_ms} onSeek={onSeek} />
-                      <span>{b.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        ) : <Empty>No summary yet.</Empty>)}
+        {tab === 'summary' && <SummaryTab meetingId={meetingId} initial={summaries} onSeek={onSeek} />}
 
         {tab === 'chapters' && (
           <ol className="flex flex-col gap-1">
@@ -95,6 +81,67 @@ function SidePanel({ summary, chapters, actions, highlights, speakers, byLabel, 
         ) : <Empty>Select words in the transcript to create a shareable clip.</Empty>)}
       </div>
     </section>
+  );
+}
+
+type Sections = Summary['sections'];
+
+// Seed meetings ship every template precomputed, so switching is instant; anything missing is
+// generated once by /api/summary and then cached for this page.
+function SummaryTab({ meetingId, initial, onSeek }: { meetingId: string; initial: Summary[]; onSeek: (ms: number) => void }) {
+  const [template, setTemplate] = useState<TemplateId>('general');
+  const [cache, setCache] = useState<Record<string, Sections>>(() => Object.fromEntries(initial.map(s => [s.template, s.sections])));
+  const [state, setState] = useState<'idle' | 'loading' | string>('idle');
+  const sections = cache[template];
+
+  const pick = async (t: TemplateId) => {
+    setTemplate(t);
+    if (cache[t]) return setState('idle');
+    setState('loading');
+    try {
+      const res = await fetch('/api/summary', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ meeting_id: meetingId, template: t }) });
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error || res.statusText);
+      setCache(c => ({ ...c, [t]: body.sections }));
+      setState('idle');
+    } catch (e) {
+      setState(e instanceof Error ? e.message : 'Could not load this summary');
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-4">
+      <label className="flex items-center gap-2 text-xs text-muted">
+        Template
+        <select
+          value={template} onChange={e => pick(e.target.value as TemplateId)}
+          className="h-8 rounded-md border border-line bg-surface-2 px-2 text-sm text-fg outline-none focus:border-accent"
+        >
+          {TEMPLATES.map(t => <option key={t.id} value={t.id}>{t.label}</option>)}
+        </select>
+        <span className="hidden truncate sm:inline">{TEMPLATES.find(t => t.id === template)?.blurb}</span>
+      </label>
+      {state === 'loading' ? <Empty>Writing the {TEMPLATES.find(t => t.id === template)?.label} summary…</Empty>
+        : state !== 'idle' ? <Empty>{state}</Empty>
+        : !sections ? <Empty>No summary yet.</Empty>
+        : (
+          <div className="flex flex-col gap-5">
+            {sections.map((sec, si) => (
+              <div key={si}>
+                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">{sec.heading}</h3>
+                <ul className="flex flex-col gap-2">
+                  {sec.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-2 leading-relaxed">
+                      <TimeChip ms={b.at_ms} onSeek={onSeek} />
+                      <span>{stripRowRefs(b.text)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
+    </div>
   );
 }
 

@@ -1,0 +1,315 @@
+{
+  "decisions": [
+    {
+      "heading": "Decisions made",
+      "bullets": [
+        {
+          "text": "Energy source for the remote will be a battery, agreed as the most cost-effective option.",
+          "row": 97
+        },
+        {
+          "text": "Design will use chip on print for the electronics.",
+          "row": 97
+        },
+        {
+          "text": "Case design will be bright, colorful, trendy, compact and strong.",
+          "row": 100
+        },
+        {
+          "text": "User interface will use simple push buttons rather than scroll wheels, to keep costs down.",
+          "row": 81
+        },
+        {
+          "text": "Speech/voice recognition will be tentatively included as a 'supplement' feature, pending further cost research from the industrial engineer.",
+          "row": 107
+        },
+        {
+          "text": "Next steps assigned: look-and-feel design, user interface design (working with clay prototype together with the industrial engineer), and a product evaluation by the marketing expert, all due before the next meeting in 30 minutes.",
+          "row": 110
+        }
+      ]
+    },
+    {
+      "heading": "Risks & concerns",
+      "bullets": [
+        {
+          "text": "The industrial engineer expressed doubt about how well voice/speech recognition would work, since different people have different voices and the system would need training.",
+          "row": 94
+        },
+        {
+          "text": "The marketing expert cautioned that having too many advertised features could confuse consumers, so only one or two standout features should be highlighted.",
+          "row": 84
+        },
+        {
+          "text": "The marketing expert noted the team needs to reach market ahead of competitors, especially before the Christmas season.",
+          "row": 84
+        }
+      ]
+    },
+    {
+      "heading": "Open questions",
+      "bullets": [
+        {
+          "text": "How expensive/feasible the speech recognition feature would actually be, to be researched by the industrial engineer before finalizing.",
+          "row": 107
+        },
+        {
+          "text": "Exact meaning and scope of 'supplements' in the interface concept was initially unclear to the project manager.",
+          "row": 106
+        }
+      ]
+    },
+    {
+      "heading": "Disagreements",
+      "bullets": [
+        {
+          "text": "Industrial engineer disagreed with using scroll wheels, noting they require a more sophisticated (pricier) chip compared to simple push buttons, favoring buttons for cost reasons.",
+          "row": 80
+        },
+        {
+          "text": "Marketing expert found the oversized 'impossible to misplace' remote design impractical/funny, disagreeing it would work as an impulse purchase item.",
+          "row": 50
+        }
+      ]
+    }
+  ],
+  "standup": [
+    {
+      "heading": "Speaker 1 (Project manager / meeting chair)",
+      "bullets": [
+        {
+          "text": "Done: Recapped the previous meeting's findings on user needs, marketing approach, technical features, and interface ideas",
+          "row": 4
+        },
+        {
+          "text": "Done: Confirmed agreement from the group that the recap matched the prior discussion",
+          "row": 21
+        },
+        {
+          "text": "Next: Led the group to decide on the concept—agreed on battery power, chip on print, and a trendy, compact, strong case",
+          "row": 97
+        },
+        {
+          "text": "Next: Assigned Francina and the industrial engineer to build a prototype together using modeling clay, with the marketing expert to do product evaluation",
+          "row": 112
+        },
+        {
+          "text": "Next: Scheduled the next meeting in thirty minutes and directed participants to contact coaches with questions",
+          "row": 115
+        }
+      ]
+    },
+    {
+      "heading": "Francina (User interface designer)",
+      "bullets": [
+        {
+          "text": "Done: Presented interface concepts including on/off, channel lock, swap/next channel buttons, volume, subtitles, color/contrast controls, memory and mute buttons",
+          "row": 27
+        },
+        {
+          "text": "Done: Proposed a speech/voice recognition feature as the standout innovation, where the remote learns the user's voice to trigger functions like channel switching",
+          "row": 35
+        },
+        {
+          "text": "Done: Showed example remotes (multipurpose voice-recognition remote, child-friendly remote, oversized 'impossible to lose' remote) to illustrate design options",
+          "row": 40
+        },
+        {
+          "text": "Next: Reiterated her personal preference for incorporating speech recognition into the final design",
+          "row": 46
+        },
+        {
+          "text": "Blocker: Industrial engineer expressed doubt about how well voice recognition would work across different users' voices",
+          "row": 94
+        }
+      ]
+    },
+    {
+      "heading": "Speaker 4 (Industrial engineer / technical designer)",
+      "bullets": [
+        {
+          "text": "Done: Presented technical components needed: case (durable, recyclable plastic), integrated circuit, resistor, capacitor, diode, transistor, resonator, battery, circuit board",
+          "row": 57
+        },
+        {
+          "text": "Done: Recommended a rechargeable battery to lower long-term cost and suggested alternative energy sources like kinetic/dynamo or solar cells",
+          "row": 61
+        },
+        {
+          "text": "Done: Explained how the remote works internally, from button press to Morse code signal generation to infrared transmission",
+          "row": 63
+        },
+        {
+          "text": "Done: Showed physical remote control internals (chip, resistors, transistor, capacitor, diode) and circuit board printing process",
+          "row": 66
+        },
+        {
+          "text": "Done: Recommended push buttons over scroll wheels to keep chip costs down",
+          "row": 72
+        },
+        {
+          "text": "Next: Tasked with researching the cost/feasibility of implementing speech recognition",
+          "row": 107
+        },
+        {
+          "text": "Next: Assigned to work with Francina on a modeling clay prototype for look and feel",
+          "row": 112
+        }
+      ]
+    },
+    {
+      "heading": "Speaker 3 (Marketing expert)",
+      "bullets": [
+        {
+          "text": "Done: Presented market research method—reviewing competitor ads, browsing online, and observing/asking about remotes people already own",
+          "row": 82
+        },
+        {
+          "text": "Done: Reported findings that consumers prefer small, simple designs with few obvious-function buttons and an eye-catching look",
+          "row": 83
+        },
+        {
+          "text": "Done: Advised getting to market before competitors and narrowing the product's marketed features to just one or two standout selling points",
+          "row": 84
+        },
+        {
+          "text": "Done: Noted current design trend toward fruit/vegetable shapes and soft, spongy materials over hard plastic or metal",
+          "row": 85
+        },
+        {
+          "text": "Next: Suggested speech recognition could serve as the product's star marketable feature, pending cost research",
+          "row": 93
+        },
+        {
+          "text": "Next: Tasked with producing a product evaluation for the next phase",
+          "row": 112
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "heading": "Francina (User interface designer)",
+      "bullets": [
+        {
+          "text": "Assigned to develop the look-and-feel design and work with the industrial engineer on a prototype using modeling clay before the next meeting (in thirty minutes)",
+          "row": 112
+        }
+      ]
+    },
+    {
+      "heading": "Industrial engineer / technical designer (components)",
+      "bullets": [
+        {
+          "text": "To research and report back on how expensive speech recognition would be to implement",
+          "row": 107
+        },
+        {
+          "text": "Assigned to come up with the user interface design and work with Francina on a prototype using modeling clay before the next meeting",
+          "row": 112
+        }
+      ]
+    },
+    {
+      "heading": "Marketing expert",
+      "bullets": [
+        {
+          "text": "Assigned to work on the product evaluation before the next meeting",
+          "row": 112
+        }
+      ]
+    },
+    {
+      "heading": "Speaker 1 (Project manager / meeting chair)",
+      "bullets": [
+        {
+          "text": "Will reconvene the meeting in thirty minutes per the project timetable",
+          "row": 115
+        },
+        {
+          "text": "Available (along with the coaches) to answer any questions during the individual action phase",
+          "row": 113
+        }
+      ]
+    },
+    {
+      "heading": "Unassigned",
+      "bullets": [
+        {
+          "text": "Specific instructions for the modeling clay prototype work will be sent by coaches to the relevant participants",
+          "row": 112
+        }
+      ]
+    },
+    {
+      "heading": "Loose ends",
+      "bullets": [
+        {
+          "text": "Whether to include speech recognition as a core feature remains pending further cost research, since concerns were raised about recognizing different users' voices",
+          "row": 94
+        },
+        {
+          "text": "Final decision on which one or two standout features to emphasize in marketing (per the marketing expert's suggestion) was not concluded",
+          "row": 84
+        }
+      ]
+    }
+  ],
+  "exec": [
+    {
+      "heading": "TL;DR",
+      "bullets": [
+        {
+          "text": "Team reviewed prior meeting's requirements, then heard three presentations: UI concepts (Francina), components/technical design (S3), and marketing findings (S2).",
+          "row": 4
+        },
+        {
+          "text": "Group converged on a concept: battery-powered, chip-on-print circuit, push buttons (not scroll wheels), bright/colorful/compact/trendy/strong casing.",
+          "row": 97
+        },
+        {
+          "text": "Speech/voice recognition was tentatively chosen as the product's standout feature, pending cost research.",
+          "row": 107
+        }
+      ]
+    },
+    {
+      "heading": "Outcomes",
+      "bullets": [
+        {
+          "text": "Decided on battery as energy source over other options, agreed as most cost-effective.",
+          "row": 97
+        },
+        {
+          "text": "Agreed to use push buttons instead of scroll wheels to avoid needing a more sophisticated (pricier) chip.",
+          "row": 81
+        },
+        {
+          "text": "Agreed on case direction: bright, colorful, compact, trendy design, and strong/durable material.",
+          "row": 100
+        },
+        {
+          "text": "Tentatively selected speech recognition as the marketed 'star feature,' contingent on further cost investigation by the industrial engineer.",
+          "row": 107
+        }
+      ]
+    },
+    {
+      "heading": "Needs attention",
+      "bullets": [
+        {
+          "text": "S3 raised doubts about voice recognition feasibility (per-person voice variation, training required), needs further technical/cost research before finalizing.",
+          "row": 94
+        },
+        {
+          "text": "Marketing expert (S2) stressed narrowing to only 1-2 headline features to avoid confusing consumers — final feature set not yet locked down.",
+          "row": 84
+        },
+        {
+          "text": "Next meeting in 30 minutes: Francina and Jana (industrial engineer) must build a prototype using modeling clay per coach instructions; marketing expert to deliver product evaluation.",
+          "row": 112
+        }
+      ]
+    }
+  ]
+}
