@@ -18,7 +18,8 @@ export default async function Home() {
       (select count(*)::int from chapters c where c.meeting_id = m.id) as chapters
     from meetings m
     where m.status = 'ready'
-    order by m.recorded_at desc nulls last, m.created_at desc`) as Card[];
+    -- Seeded meetings first (newest recording first: Burlington on top), then uploads (they live in Blob).
+    order by (m.media_url like '%.blob.vercel-storage.com/%') , m.recorded_at desc nulls last, m.created_at desc`) as Card[];
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:py-14">
