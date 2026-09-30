@@ -1,0 +1,241 @@
+{
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 17969,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2803,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "notes": {
+    "speakers": [
+      {
+        "label": 0,
+        "name": null,
+        "role": "Board chair (presiding)",
+        "evidence": null
+      },
+      {
+        "label": 1,
+        "name": null,
+        "role": "Board member",
+        "evidence": null
+      },
+      {
+        "label": 2,
+        "name": "Ken",
+        "role": "Town planning staff",
+        "evidence": "\"Ken, there was a note from Lisa Shelter\" addressed at row #37; Ken responds throughout as staff"
+      },
+      {
+        "label": 3,
+        "name": "Sheila McIntyre",
+        "role": "Applicant's engineer (Summit Engineering)",
+        "evidence": "\"Sheila McIntyre from Summit Engineering.\" (row #24)"
+      },
+      {
+        "label": 4,
+        "name": null,
+        "role": "Board member",
+        "evidence": null
+      },
+      {
+        "label": 5,
+        "name": "Melinda",
+        "role": "Town planning staff (pre-application review)",
+        "evidence": "\"Melinda.\" addressed by chair at row #56, and she responds as staff presenter"
+      },
+      {
+        "label": 6,
+        "name": "Annie Spencer",
+        "role": "Applicant (Lot B owner)",
+        "evidence": "\"We are William and Annie Spencer, living at 1171 Ledgewood Drive.\" (row #54)"
+      }
+    ],
+    "chapters": [
+      {
+        "title": "Opening of Meeting",
+        "summary": "Board chair opens the DRB meeting for August 8, listing three agenda items to review.",
+        "start_row": 3
+      },
+      {
+        "title": "Lakeview Farm Inc. Discretionary Permit",
+        "summary": "Staff presents a two-lot subdivision request in the ARZD; discussion covers open space set-aside, conservation commission recommendations on wetlands and building envelope location, plantings, and state permits obtained.",
+        "start_row": 8
+      },
+      {
+        "title": "Building Envelope and Plantings Confirmation",
+        "summary": "Board and applicant's engineer confirm the building envelope was moved 50 feet as previously recommended, and additional plantings were added on Lot 1 per conservation commission guidance.",
+        "start_row": 17
+      },
+      {
+        "title": "Lisa Shelter's Utility Comments",
+        "summary": "Staff notes utility department comments requiring underground utilities, right-of-way permits, and an erosion control plan; applicant is advised to respond in writing to obtain sign-off.",
+        "start_row": 37
+      },
+      {
+        "title": "Closing Lakeview Farm Hearing",
+        "summary": "Board closes the Lakeview Farm Inc. hearing after no further questions.",
+        "start_row": 50
+      },
+      {
+        "title": "Spencer Pre-Application: Background",
+        "summary": "Staff (Melinda) explains the history of a previously approved three-lot subdivision (Pumpkin Hill Road) where growth management allocation expired for Lot B, and outlines criteria for reinstating expired allocation.",
+        "start_row": 53
+      },
+      {
+        "title": "Missing Documentation Recess",
+        "summary": "Board realizes it lacks printed copies of key materials referenced by staff and takes a short recess to obtain them.",
+        "start_row": 72
+      },
+      {
+        "title": "Re-review of Allocation Criteria",
+        "summary": "Melinda repeats the criteria for reestablishing expired allocation (time limitation, substantial progress, conditions of approval, special findings) after the recess.",
+        "start_row": 87
+      },
+      {
+        "title": "Conservation Commission's Open Space Concern",
+        "summary": "Discussion reveals the conservation commission recommends protecting the southern half of Lot C (owned by a different, non-applicant party) as open space, raising a legal and procedural conundrum for the board.",
+        "start_row": 93
+      },
+      {
+        "title": "Lot Ownership and Map Confusion",
+        "summary": "Extensive back-and-forth clarifying which lot is which on the maps, boundary line adjustments, and confirming Lot B ownership by the Spencers versus Lot C ownership by another party.",
+        "start_row": 116
+      },
+      {
+        "title": "Board Deliberates Path Forward",
+        "summary": "Board debates whether to find substantial compliance and reestablish allocation, ignore or accommodate the conservation commission's recommendation on Lot C, seek a legal opinion, or continue the hearing to allow parties to work it out.",
+        "start_row": 173
+      },
+      {
+        "title": "Growth Management Scoring Discussion",
+        "summary": "Staff explains how growth management scoring and exemptions work, clarifying that losing this reinstatement path wouldn't necessarily preclude the applicant from getting allocation through competition.",
+        "start_row": 203
+      },
+      {
+        "title": "Fire Department Comments and Closing",
+        "summary": "Fire department driveway grade and fire pond recommendations are noted; board takes final questions and closes the Spencer hearing.",
+        "start_row": 223
+      },
+      {
+        "title": "Mapletree Place Amendment Review",
+        "summary": "Board reviews final plans for Mapletree Place amendment #2, covering pedestrian connections, crosswalks, bike racks, street trees, and landscaping within the Velco easement, before going into deliberation.",
+        "start_row": 249
+      }
+    ],
+    "action_items": [
+      {
+        "owner_label": 2,
+        "text": "Add a written condition to the Lakeview Farm approval requiring the building envelope boundary shift that was previously discussed but omitted from the draft findings.",
+        "due": null,
+        "row": 21
+      },
+      {
+        "owner_label": 3,
+        "text": "Provide a written response addressing Lisa Shelter's comments, including the erosion control plan, to obtain her sign-off on the final plans checklist.",
+        "due": null,
+        "row": 45
+      },
+      {
+        "owner_label": null,
+        "text": "Board to decide whether the Spencer/Pumpkin Hill Road subdivision is in substantial compliance with current development regulations, or seek a legal opinion, or continue the hearing a month to allow parties to resolve the Lot C open space issue.",
+        "due": null,
+        "row": 175
+      },
+      {
+        "owner_label": 6,
+        "text": "Contact town staff in the morning to learn the board's decision on the pre-application.",
+        "due": null,
+        "row": 237
+      }
+    ],
+    "summary": [
+      {
+        "heading": "Purpose",
+        "bullets": [
+          {
+            "text": "Williston DRB met to review three items: a discretionary permit for Lakeview Farm Inc.'s two-lot split, a pre-application for reinstating expired growth management allocation for the Spencer property, and final plans review for Mapletree Place amendment #2.",
+            "row": 4
+          }
+        ]
+      },
+      {
+        "heading": "Key takeaways",
+        "bullets": [
+          {
+            "text": "Lakeview Farm Inc. two-lot subdivision met density and open space requirements (75% set-aside), with conservation commission recommending no required buffer on class 3 ponds and visual impact minimization for the new house.",
+            "row": 12
+          },
+          {
+            "text": "Applicant's engineer confirmed the building envelope was moved 50 feet per prior board recommendation and additional plantings were added on Lot 1.",
+            "row": 26
+          },
+          {
+            "text": "The Spencer pre-application involves reinstating one unit of expired growth management allocation for Lot B in a previously approved 3-lot, 90+ acre subdivision from 2008.",
+            "row": 57
+          },
+          {
+            "text": "A major complication arose: the conservation commission recommends open space changes on Lot C, which is owned by a different party not present at the hearing and not part of this application.",
+            "row": 161
+          },
+          {
+            "text": "Staff explained growth management scoring, noting the applicant might still qualify for allocation through competitive process or exemptions even without this reinstatement path.",
+            "row": 204
+          }
+        ]
+      },
+      {
+        "heading": "Decisions",
+        "bullets": [
+          {
+            "text": "Board closed the Lakeview Farm Inc. hearing (DP16-23) with a recommendation for approval largely intact, pending the added condition on building envelope.",
+            "row": 51
+          },
+          {
+            "text": "Board closed the public hearing for the Spencer pre-application (DP17-30) to proceed to deliberation on the substantial compliance question.",
+            "row": 244
+          }
+        ]
+      },
+      {
+        "heading": "Open questions",
+        "bullets": [
+          {
+            "text": "Whether the board can or should enforce an open space change on Lot C, a lot not owned by the applicant and not part of the current application.",
+            "row": 120
+          },
+          {
+            "text": "Whether the subdivision meets the 'substantial compliance with intent and purpose of current development regulations' criterion given changes in regulations (habitat assessment) since original approval.",
+            "row": 96
+          },
+          {
+            "text": "Whether pausing to seek a legal opinion or continuing the hearing would affect the calendar-year deadline for the applicant to reapply.",
+            "row": 177
+          }
+        ]
+      },
+      {
+        "heading": "Next steps",
+        "bullets": [
+          {
+            "text": "Board to determine path forward on the Spencer application: find substantial compliance, seek legal opinion, or continue for a month to let parties work out the Lot C open space issue.",
+            "row": 175
+          },
+          {
+            "text": "Board to continue deliberation on Mapletree Place amendment final plans, reviewing landscaping details near the Velco easement.",
+            "row": 274
+          }
+        ]
+      }
+    ]
+  }
+}

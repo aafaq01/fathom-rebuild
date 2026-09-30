@@ -1,0 +1,205 @@
+{
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 7152,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2108,
+    "output_tokens_details": {
+      "thinking_tokens": 342
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "notes": {
+    "speakers": [
+      {
+        "label": 0,
+        "name": "Sarah",
+        "role": "Project manager",
+        "evidence": "\"I'm Sarah, the project manager\" (row 7)"
+      },
+      {
+        "label": 1,
+        "name": null,
+        "role": "Team member (user experience/design perspective)",
+        "evidence": null
+      },
+      {
+        "label": 2,
+        "name": null,
+        "role": "Team member (interface/design ideas)",
+        "evidence": null
+      },
+      {
+        "label": 3,
+        "name": null,
+        "role": "Team member (minor participation)",
+        "evidence": null
+      },
+      {
+        "label": 4,
+        "name": null,
+        "role": "Team member (marketing/company research)",
+        "evidence": null
+      }
+    ],
+    "chapters": [
+      {
+        "title": "Opening and equipment setup",
+        "summary": "Team sorts out microphones and room setup before the meeting formally begins.",
+        "start_row": 0
+      },
+      {
+        "title": "Introduction and agenda",
+        "summary": "Sarah introduces herself as project manager and outlines the agenda: icebreaker, tool training, project plan, and idea discussion for the remote control project.",
+        "start_row": 7
+      },
+      {
+        "title": "Project goals for remote control",
+        "summary": "Sarah explains the product should be original, trendy, appealing to a wide market, and user-friendly for all ages, and outlines the functional, conceptual, and detailed design phases.",
+        "start_row": 9
+      },
+      {
+        "title": "Icebreaker drawing exercise",
+        "summary": "Each team member draws their favorite animal on the whiteboard and describes its characteristics (tiger, dog, and others) as a way to get comfortable with each other.",
+        "start_row": 11
+      },
+      {
+        "title": "Finance and pricing constraints",
+        "summary": "Sarah shares the selling price (€25), production cost (€12.50), and profit aim (€50,000,000), with the team converting currency and discussing whether to undercut competitor prices.",
+        "start_row": 58
+      },
+      {
+        "title": "Target market discussion",
+        "summary": "The team agrees the remote should target an international market across all age groups rather than a specific business segment or language group.",
+        "start_row": 70
+      },
+      {
+        "title": "Personal experiences with remote controls",
+        "summary": "Team members share frustrations with universal remotes losing programming and with overly complex remotes, agreeing simplicity and integration are valued.",
+        "start_row": 73
+      },
+      {
+        "title": "Design ideas: LCD menu and usability features",
+        "summary": "Team discusses incorporating a mobile-phone-style LCD menu, large-print options for older users, a dual-button/menu design, and flip-top screens, while considering cost trade-offs.",
+        "start_row": 78
+      },
+      {
+        "title": "Materials and styling considerations",
+        "summary": "Team discusses whether the remote needs to look fashionable like a mobile phone, referencing the company's 'fashion into electronics' branding, and debates plastic vs metal for cost.",
+        "start_row": 91
+      },
+      {
+        "title": "Wrap-up and next steps",
+        "summary": "Sarah closes the meeting, noting the team has half an hour to do individual work before reconvening.",
+        "start_row": 93
+      }
+    ],
+    "action_items": [
+      {
+        "owner_label": 4,
+        "text": "Look at putting pricing/currency notes into a shared folder for later reference.",
+        "due": null,
+        "row": 64
+      },
+      {
+        "owner_label": null,
+        "text": "Each team member to go off and do individual functional design work before the next meeting.",
+        "due": "in half an hour",
+        "row": 93
+      }
+    ],
+    "summary": [
+      {
+        "heading": "Purpose",
+        "bullets": [
+          {
+            "text": "Kick-off meeting for the remote control design project, introducing the team and covering the agenda: icebreaker, tool training, project plan, and initial idea discussion.",
+            "row": 7
+          }
+        ]
+      },
+      {
+        "heading": "Key takeaways",
+        "bullets": [
+          {
+            "text": "Product goals: original, trendy, appealing to a wide market, not made of metal, and user-friendly for grannies, kids, and even pets.",
+            "row": 9
+          },
+          {
+            "text": "Design process has three phases: functional design, conceptual design, and detailed design.",
+            "row": 9
+          },
+          {
+            "text": "Selling price is €25, production cost €12.50, with a profit aim of €50,000,000 (assumed first year).",
+            "row": 58
+          },
+          {
+            "text": "Target market is international and all age groups, not a specific business segment or language group.",
+            "row": 70
+          },
+          {
+            "text": "Team members shared frustration with universal remotes losing programmed signals and overly complex button layouts.",
+            "row": 73
+          },
+          {
+            "text": "Idea proposed to add a mobile-phone-style LCD menu display to reduce button clutter.",
+            "row": 78
+          },
+          {
+            "text": "Concerns raised about usability for older generations, with suggestions like a large-print button mode.",
+            "row": 87
+          },
+          {
+            "text": "Discussion on whether the remote needs to be stylish/fashionable like a mobile phone, referencing the company's branding of 'fashion into electronics'.",
+            "row": 95
+          }
+        ]
+      },
+      {
+        "heading": "Decisions",
+        "bullets": [
+          {
+            "text": "The remote will target a broad international, all-ages market rather than a niche segment.",
+            "row": 72
+          }
+        ]
+      },
+      {
+        "heading": "Open questions",
+        "bullets": [
+          {
+            "text": "Whether to undercut competitor pricing (~£17-20) or risk the product looking cheap.",
+            "row": 67
+          },
+          {
+            "text": "Whether plastic materials would reduce cost compared to metal, and how much screen quality is affordable within the price constraints.",
+            "row": 86
+          },
+          {
+            "text": "How to balance intuitive design with cost, especially for older users' large-print needs.",
+            "row": 87
+          }
+        ]
+      },
+      {
+        "heading": "Next steps",
+        "bullets": [
+          {
+            "text": "Team to break for half an hour to work individually on functional design before reconvening.",
+            "row": 93
+          },
+          {
+            "text": "Sarah to prepare another presentation for the next meeting.",
+            "row": 94
+          }
+        ]
+      }
+    ]
+  }
+}

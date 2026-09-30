@@ -1,0 +1,256 @@
+{
+  "model": "claude-sonnet-5",
+  "usage": {
+    "input_tokens": 16688,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 4526,
+    "output_tokens_details": {
+      "thinking_tokens": 1558
+    },
+    "service_tier": "standard",
+    "inference_geo": "global"
+  },
+  "notes": {
+    "speakers": [
+      {
+        "label": 0,
+        "name": null,
+        "role": "Board/committee member",
+        "evidence": null
+      },
+      {
+        "label": 1,
+        "name": "David Provost",
+        "role": "BTAB Chair",
+        "evidence": "Public speaker thanks 'David Provost' for BTAB efforts (row 7); S1 runs the meeting throughout and is later addressed as 'David' by other members (row 162)."
+      },
+      {
+        "label": 2,
+        "name": "Kit Andrews",
+        "role": "Resident/KBTL supporter (public comment)",
+        "evidence": "'My name is Kit Andrews.' (row 26)"
+      },
+      {
+        "label": 3,
+        "name": "Joan Shannon",
+        "role": "City Councilor / BTAB member",
+        "evidence": "Addressed as 'Doctor. Shannon' before speaking (row 73) and as 'Joan' when answered by Terry (row 77)."
+      },
+      {
+        "label": 4,
+        "name": "Carolyn Bates",
+        "role": "Resident/BT customer (public comment)",
+        "evidence": "'I'm Carolyn Bates' (row 6)"
+      },
+      {
+        "label": 5,
+        "name": "Deb Flanders",
+        "role": "Resident/BT customer (public comment)",
+        "evidence": "'My name is Deb Flanders.' (row 16)"
+      },
+      {
+        "label": 6,
+        "name": null,
+        "role": "City Councilor / BTAB member",
+        "evidence": null
+      },
+      {
+        "label": 7,
+        "name": "Terry Dorman",
+        "role": "Advisor, Dorman & Faucette (sale process)",
+        "evidence": "S1 asks 'Terry, do you want to touch base on...' and S7 answers directly (rows 49-50)."
+      },
+      {
+        "label": 8,
+        "name": "Stephen Barraclough",
+        "role": "BT General Manager",
+        "evidence": "S1 says 'Stephen, anything to add on sales process and change?' and S8 responds as the manager (rows 54-55); later addressed as 'Mister Barroclaw' (row 174)."
+      },
+      {
+        "label": 9,
+        "name": "Jeremy Bacher",
+        "role": "BT/burlington.com technical staff",
+        "evidence": "'Jeremy Bacher with burlington.com.' (row 87)"
+      }
+    ],
+    "chapters": [
+      {
+        "title": "Call to Order and Agenda Approval",
+        "summary": "The chair calls the meeting to order, the agenda is approved without amendment, and the July minutes are approved.",
+        "start_row": 2
+      },
+      {
+        "title": "Public Forum: Carolyn Bates on KBTL/Shores Proposal",
+        "summary": "Carolyn Bates proposes advancing KBTL and Shores (an Indiana telecom) together as bidders, suggesting Shores provide financing while KBTL runs BT locally, with future buyback options.",
+        "start_row": 6
+      },
+      {
+        "title": "Public Forum: Deb Flanders on Local Ownership",
+        "summary": "New BT customer Deb Flanders expresses concern that rates and service will worsen if BT is sold to an outside corporation, citing KBTL's financial plan and the City Market co-op precedent.",
+        "start_row": 16
+      },
+      {
+        "title": "Public Forum: Kit Andrews and the KBTL Business Plan",
+        "summary": "Kit Andrews presents a petition of 24 downtown business owners supporting KBTL and compares KBTL's conservative financial projections to City Market's successful co-op launch.",
+        "start_row": 26
+      },
+      {
+        "title": "Sale Process Update: Bidders and the HBC/Shores Deal",
+        "summary": "David and Terry update the board that the council will narrow bidders to two after a meeting Monday, and note Shores recently acquired HBC (Hiawatha), the Winona-based telecom that originally advised BT's turnaround.",
+        "start_row": 42
+      },
+      {
+        "title": "Q&A: Ting's Name, DNF Relationships, and Stephen's Future",
+        "summary": "Board members ask about Ting keeping the BT name, ongoing relationships between Dorman & Faucette and bidders, and whether Stephen Barraclough has spoken with any bidders about his future role; he declines to speculate publicly.",
+        "start_row": 50
+      },
+      {
+        "title": "Data Privacy and Protection Discussion",
+        "summary": "Joan Shannon raises concerns about how future owners will handle customer data; Stephen and Jeremy Bacher explain BT's current policies (no data selling, encrypted billing system) and agree industry best practices should continue.",
+        "start_row": 74
+      },
+      {
+        "title": "Council Recommendation and Attendance at Monday's Meeting",
+        "summary": "David notes BTAB's recommendations have been sent to and released by the council, and encourages members to attend Monday's council meeting to share views.",
+        "start_row": 117
+      },
+      {
+        "title": "Management Update: Subscribers, Staffing, and Financials",
+        "summary": "Stephen reports 7,224 subscribers (up 35% year-over-year), staffing shortages in customer service due to the pending sale, softness in business (not residential) demand, and on-plan build-out including the new North End and Ethan Allen Mall storefront opening November 1.",
+        "start_row": 121
+      },
+      {
+        "title": "Innovation Week and BTV Ignite Preview",
+        "summary": "Stephen previews next week's Innovation Week events (Mont Hack, Tech Jam, FreshTrax) organized under BTV Ignite, including a keynote from Bill Wallace and participation from the Governor and Mayor.",
+        "start_row": 140
+      },
+      {
+        "title": "Closing Remarks and Thanks",
+        "summary": "David, Joan, and another councilor thank Dorman & Faucette and the BT management team for their work over the seven-year process; Stephen thanks the BT team and BTAB, expressing optimism about BT's future before the meeting adjourns.",
+        "start_row": 145
+      }
+    ],
+    "action_items": [
+      {
+        "owner_label": 7,
+        "text": "Circulate clarification from Ting/King on their proposal once received.",
+        "due": null,
+        "row": 50
+      },
+      {
+        "owner_label": 1,
+        "text": "Talk to the council president about having BT staff share their views with the council.",
+        "due": null,
+        "row": 113
+      },
+      {
+        "owner_label": 8,
+        "text": "Share more details on the exciting business prospects in executive session.",
+        "due": "next month",
+        "row": 127
+      },
+      {
+        "owner_label": null,
+        "text": "BTAB members attend Monday's council meeting to share their thoughts on the sale.",
+        "due": "Monday",
+        "row": 118
+      }
+    ],
+    "summary": [
+      {
+        "heading": "Purpose",
+        "bullets": [
+          {
+            "text": "Monthly Burlington Telecom Advisory Board (BTAB) meeting to hear public comment, review the sale process for Burlington Telecom, and receive a management update.",
+            "row": 2
+          }
+        ]
+      },
+      {
+        "heading": "Key takeaways",
+        "bullets": [
+          {
+            "text": "Multiple public speakers voiced strong support for keeping BT locally owned via Keep Burlington Telecom Local (KBTL), citing rate stability, service quality, and community control.",
+            "row": 6
+          },
+          {
+            "text": "The city council plans to narrow the sale bidders to two after a meeting the following Monday, with Dorman & Faucette then negotiating final terms.",
+            "row": 42
+          },
+          {
+            "text": "Shores (a bidder) recently acquired HBC/Hiawatha, the Winona, MN company that originally advised BT's turnaround and which BT modeled itself on.",
+            "row": 47
+          },
+          {
+            "text": "Ting has indicated willingness to keep the Burlington Telecom name, though not necessarily permanently.",
+            "row": 51
+          },
+          {
+            "text": "Stephen Barraclough declined to say which bidder he'd want to work for, citing a desire not to influence the process, but confirmed his interest in continuing to shape BT's future if the new owner shares his vision.",
+            "row": 68
+          },
+          {
+            "text": "BT's current policy is not to sell customer data; billing data is encrypted and isolated from the public internet, though public WiFi traffic carries standard internet risks.",
+            "row": 83
+          },
+          {
+            "text": "First quarter subscriber growth was strong (7,224 subscribers, up 35% YoY), though staffing losses in customer service and some business-client hesitancy are emerging due to sale uncertainty.",
+            "row": 122
+          }
+        ]
+      },
+      {
+        "heading": "Decisions",
+        "bullets": [
+          {
+            "text": "The agenda and July 12 minutes were approved without amendment.",
+            "row": 3
+          },
+          {
+            "text": "BTAB's prior recommendations on bidders have already been sent to and released by the city council as part of the public record.",
+            "row": 117
+          }
+        ]
+      },
+      {
+        "heading": "Open questions",
+        "bullets": [
+          {
+            "text": "Whether and how customer data protections (encryption, privacy) will be addressed in future ownership negotiations remains unresolved.",
+            "row": 80
+          },
+          {
+            "text": "Whether BT staff will be given a formal opportunity to share their views with the city council before the sale decision.",
+            "row": 108
+          }
+        ]
+      },
+      {
+        "heading": "Next steps",
+        "bullets": [
+          {
+            "text": "City council meets Monday to narrow bidders to two finalists.",
+            "row": 42
+          },
+          {
+            "text": "Dorman & Faucette will continue negotiating clarifications with remaining bidders, including on data protection and naming commitments.",
+            "row": 77
+          },
+          {
+            "text": "BT will open its Ethan Allen Mall storefront around November 1 and continue North End build-out.",
+            "row": 133
+          },
+          {
+            "text": "Innovation Week (BTV Ignite events including Mont Hack, Tech Jam, FreshTrax) occurs next week.",
+            "row": 140
+          }
+        ]
+      }
+    ]
+  }
+}
