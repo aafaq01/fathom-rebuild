@@ -1,5 +1,6 @@
 import { neon } from '@neondatabase/serverless';
 import type { Meeting, Row, Chapter, ActionItem, Summary, Highlight } from './types';
+import { readableUrl } from './media';
 
 // ponytail: placeholder only lets `next build` import this without a DB; every page is dynamic,
 // so a missing DATABASE_URL still fails loudly on the first real query.
@@ -8,6 +9,7 @@ export const sql = neon(process.env.DATABASE_URL || 'postgresql://missing:missin
 export async function getMeeting(id: string) {
   const [meeting] = (await sql`select * from meetings where id = ${id} and status = 'ready'`) as Meeting[];
   if (!meeting) return null;
+  meeting.media_url = await readableUrl(meeting.media_url); // uploads: signed URL for the player
   const [rows, chapters, actions, summaries, highlights] = await Promise.all([
     sql`select idx, speaker, start_ms, end_ms, text, words from utterances where meeting_id = ${id} order by idx`,
     sql`select idx, title, summary, start_ms, end_ms from chapters where meeting_id = ${id} order by idx`,

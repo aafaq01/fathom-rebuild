@@ -7,6 +7,7 @@ import { clock } from '@/lib/format';
 import { shortDate } from '@/lib/dates';
 import type { Chapter, Highlight, Meeting, Row } from '@/lib/types';
 import { SpeakerLabel } from '../../SpeakerStack';
+import { readableUrl } from '@/lib/media';
 import ClipPlayer from './clip-player';
 
 const load = cache(async (id: string) => {
@@ -61,7 +62,7 @@ export default async function ClipPage({ params }: PageProps<'/c/[id]'>) {
       )}
 
       <div className="mt-6">
-        <ClipPlayer kind={meeting.media_kind} src={meeting.media_url} start={h.start_ms} end={h.end_ms} />
+        <ClipPlayer kind={meeting.media_kind} src={await readableUrl(meeting.media_url)} start={h.start_ms} end={h.end_ms} />
       </div>
 
       <section className="mt-8">

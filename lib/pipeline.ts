@@ -5,6 +5,7 @@ import { sql } from './db';
 import { toRows, type Deepgram } from './rows.ts';
 import { generateNotes } from './notes.ts';
 import { buildContent, contentQueries } from './store.ts';
+import { readableUrl } from './media';
 
 async function transcribe(url: string): Promise<Deepgram> {
   const params = new URLSearchParams({ model: 'nova-3', diarize: 'true', utterances: 'true', smart_format: 'true', punctuate: 'true' });
@@ -19,7 +20,7 @@ async function transcribe(url: string): Promise<Deepgram> {
 
 export async function processMeeting(id: string, title: string, url: string) {
   try {
-    const dg = await transcribe(url);
+    const dg = await transcribe(await readableUrl(url, 30 * 60_000));
     const rows = toRows(dg);
     if (!rows.length) throw new Error('No speech found in this recording');
     const duration = Math.round(dg.metadata.duration * 1000);
