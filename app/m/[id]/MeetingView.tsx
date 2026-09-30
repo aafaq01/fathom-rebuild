@@ -9,6 +9,8 @@ import Transcript from './Transcript';
 import SidePanel from './SidePanel';
 import { Avatar, askRename } from './bits';
 
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
+
 export default function MeetingView({ data, initialMs }: { data: MeetingData; initialMs: number }) {
   const { meeting, rows, chapters, actions, summaries } = data;
   const { names, rename } = useSpeakerNames(meeting.id);
@@ -124,7 +126,7 @@ export default function MeetingView({ data, initialMs }: { data: MeetingData; in
         <div className="min-w-0">
           <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">{meeting.title}</h1>
           <p className="mt-1 text-sm text-muted">
-            {[date, minutes(duration), `${speakers.length} speakers`, `${actions.length} action items`].filter(Boolean).join(' · ')}
+            {[date, minutes(duration), plural(speakers.length, 'speaker'), plural(actions.length, 'action item')].filter(Boolean).join(' · ')}
             {meeting.source_url && (
               <> · <a href={meeting.source_url} target="_blank" rel="noreferrer" className="underline decoration-line underline-offset-2 hover:text-fg">{meeting.license}</a></>
             )}
