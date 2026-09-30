@@ -167,7 +167,7 @@ const RowView = memo(function RowView({ row, speaker, showName, active, hit, act
     >
       <span className={`pt-px font-mono text-[11px] tabular-nums ${active ? 'text-accent' : 'text-muted'}`}>{clock(row.start_ms)}</span>
       <div className="min-w-0">
-        {showName && (
+        {(showName || active) && (
           <div className="text-xs font-semibold" style={{ color: speaker?.color }}>
             {speakerName(speaker, row.speaker)}
             {speaker?.role && <span className="ml-1.5 font-normal text-muted">{speaker.role}</span>}
