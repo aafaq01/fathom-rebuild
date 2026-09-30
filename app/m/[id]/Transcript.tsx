@@ -59,6 +59,7 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
     const start = Math.min(+a.dataset.s!, +b.dataset.s!);
     const end = Math.max(+a.dataset.e!, +b.dataset.e!);
     const r = sel.getRangeAt(0).getBoundingClientRect();
+    setFollow(false); // don't scroll the selection out from under the button
     setPending({ start, end, x: r.left + r.width / 2, y: r.top });
   };
 
@@ -98,7 +99,7 @@ export default function Transcript({ rows, chapters, actions, speakers, byLabel,
       <div className="relative min-h-0 flex-1">
         <div
           ref={listRef} onMouseUp={onMouseUp}
-          onWheel={() => setFollow(false)} onTouchMove={() => setFollow(false)}
+          onWheel={() => { setFollow(false); setPending(null); }} onTouchMove={() => { setFollow(false); setPending(null); }}
           className="absolute inset-0 overflow-y-auto px-2 py-2"
         >
           {rows.map(r => {

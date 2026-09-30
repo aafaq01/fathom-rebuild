@@ -116,7 +116,7 @@ function Timeline({ duration, rows, speakers, chapters, actions, highlights, hit
         </div>
       </div>
       <div className="mt-1 flex justify-between font-mono text-[10px] text-muted" style={{ marginLeft: LABEL_W + 12 }}>
-        {[0, 0.25, 0.5, 0.75, 1].map(f => <span key={f}>{clock(f * duration)}</span>)}
+        {[0, 0.25, 0.5, 0.75, 1].map(f => <span key={f} className={f === 0.25 || f === 0.75 ? 'hidden sm:inline' : ''}>{clock(f * duration)}</span>)}
       </div>
     </section>
   );

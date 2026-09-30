@@ -146,7 +146,7 @@ export default function MeetingView({ data, initialMs }: { data: MeetingData; in
                   {currentSpeaker ? <Avatar speaker={currentSpeaker} size={40} /> : <div className="h-10 w-10 rounded-full bg-surface-2" />}
                   <div className="min-w-0">
                     <div className="text-xs uppercase tracking-wide text-muted">Now speaking</div>
-                    <div className="truncate font-medium">{currentSpeaker ? speakerName(currentSpeaker) : '—'}</div>
+                    <div className="truncate font-medium">{currentSpeaker ? speakerName(currentSpeaker) : 'Press play'}</div>
                   </div>
                 </div>
                 <audio ref={el => { mediaRef.current = el; }} src={meeting.media_url} controls preload="metadata" className="w-full" />
