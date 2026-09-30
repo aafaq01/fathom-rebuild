@@ -30,6 +30,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 className="h-9 w-full rounded-lg border border-line bg-surface-2 px-3 text-sm outline-none focus:border-accent"
               />
             </form>
+            <Link href="/upload" className="flex h-9 shrink-0 items-center rounded-lg bg-accent px-3 text-sm font-medium text-white hover:opacity-90">
+              Upload
+            </Link>
           </div>
         </header>
         {children}
